@@ -1,0 +1,14 @@
+[
+	{id: "1", text: "测试试卷"},
+	
+	{id: "11", text: "职业经理人压力应变能力测评", pid: "1",url:"test!test.action?testid=1"},
+	{id: "12", text: "心理测试", pid: "1",url:"test!test.action?testid=2"},
+
+	{id: "2", text: "测试分析",url:"usertest.jsp"},
+
+	{id: "3", text: "系统管理"},
+	{id: "31", text: "用户管理", pid: "3",url:""},
+    {id: "32", text: "试卷管理", pid: "3",url:""},
+    {id: "33", text: "题目管理", pid: "3",url:""}
+
+]

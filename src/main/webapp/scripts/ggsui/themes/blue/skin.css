@@ -1,0 +1,669 @@
+﻿.ggs-button
+{
+    border-radius: 2px; 
+}
+.ggs-tab
+{
+    border-radius:3px;   
+}
+.ggs-tabs-position-right .ggs-tab
+{
+    border-top-left-radius:0px;
+    border-bottom-left-radius:0px;     
+}
+
+.ggs-tabs-position-left .ggs-tab
+{
+    border-top-right-radius:0px;
+    border-bottom-right-radius:0px;     
+}
+.ggs-tabs-position-bottom .ggs-tab
+{
+    border-top-right-radius:0px;
+    border-top-left-radius:0px;     
+}
+.ggs-tabs-position-top .ggs-tab
+{
+    border-bottom-right-radius:0px;
+    border-bottom-left-radius:0px; 
+}
+
+
+/*----------------------------------- bgcss ----------------------------------*/
+.bg-toolbar
+{
+    background:#f0f0f0 url(images/toolbar/toolbar.gif) repeat-x 0 0;
+}
+
+
+/*----------------------------------- tools ----------------------------------*/
+
+.ggs-tools .ggs-tools-collapse
+{
+    background:url(images/tools/collapse.gif) no-repeat 50% 50%;
+    width:15px;	
+}
+.ggs-tools .ggs-tools-expand
+{
+    background:url(images/tools/expand.gif) no-repeat 50% 50%;
+    width:15px;	
+}
+.ggs-tools-close
+{
+    background:url(images/tools/close.gif) no-repeat 50% 0px;
+    width:15px;	
+}
+
+
+/*----------------------------------- toolbar ----------------------------------*/
+
+.ggs-toolbar
+{
+    border:solid 1px #99bce8;
+    background:#f0f0f0 url(images/toolbar/toolbar.gif) repeat-x 0 0;
+}
+.separator
+{
+    border-left:solid 1px #A8A8A8;    
+}
+
+/*----------------------------------- button ----------------------------------*/
+
+.ggs-button
+{
+	background:url(images/button/button.gif) repeat-x 0px 50%;
+	border:solid 1px #b5afaf;	
+    color:#222;
+}
+body a:hover.ggs-button
+{
+	background:#e2f2fe url(images/button/hover.gif) repeat-x 0px 50%;
+	border:solid 1px #80a4d0;	         
+}
+body .ggs-button-pressed, body a:hover.ggs-button-pressed,
+body .ggs-button-checked, body a:hover.ggs-button-checked,
+body a.ggs-button-popup, body a:hover.ggs-button-popup
+{
+	background:#bacee4 url(images/button/pressed.gif) repeat-x 0px 50%;	
+	border-color:#7a9ac4;
+}
+body .ggs-button-disabled, body a:hover.ggs-button-disabled
+{
+    border-color:#E1E2E5;
+    color:#BABAC1;
+    background:#F8F9FA url(images/button/disabled.png) repeat-x 0 0px;       
+}
+
+
+/*----------------------------------- textbox ----------------------------------*/
+.ggs-textbox-input
+{
+    background:white url(images/buttonedit/text-bg.gif) repeat-x 0px top;
+	border:solid 1px #b5b8c8;        
+}
+body .ggs-textbox-focus .ggs-textbox-input
+{
+    border-color: #7eadd9;
+}
+
+
+/*----------------------------------- buttonedit ----------------------------------*/
+
+.ggs-buttonedit-border
+{
+	background:white url(images/buttonedit/text-bg.gif) repeat-x 0px top;
+	border-color:#b5b8c8;    
+}
+body .ggs-buttonedit-focus .ggs-buttonedit-border
+{
+    border-color: #7eadd9;
+}
+.ggs-buttonedit-button
+{
+	background:url(images/buttonedit/btn.gif) repeat-x 0px 50%;		
+	border:#b5b8c8 1px solid;   
+	padding:0;
+}
+.ggs-buttonedit-button-hover,
+.ggs-buttonedit-hover .ggs-buttonedit-button
+{
+    background:url(images/buttonedit/btn-hover.gif) repeat-x 0 50%;	
+	border-color:#80a4d0;
+}
+.ggs-buttonedit-button-pressed,
+.ggs-buttonedit-popup .ggs-buttonedit-button
+{
+    background:url(images/buttonedit/btn-pressed.gif) repeat-x 0 50%;	
+	border-color:#80a4d0;
+}
+.ggs-popupedit .ggs-buttonedit-icon
+{
+    background:url(images/buttonedit/arrow.gif) no-repeat  1px 2px;
+}
+.ggs-datepicker .ggs-buttonedit-icon
+{
+    background:url(images/buttonedit/date.gif) no-repeat  1px 2px;
+}
+
+
+/*------------------------- panel -----------------------*/
+
+.ggs-panel-border
+{    
+    border:1px solid #99bce8;     
+}
+.ggs-panel-header
+{
+    height:25px;
+    background:#E3E6E8 url(images/panel/header.gif) repeat-x 0 0px;
+    color:#04408c;
+    font-weight:bold;
+    border-bottom:solid 1px #99bce8;
+}
+.ggs-panel-header-inner
+{
+   padding-top:4px;
+}
+.ggs-panel-toolbar
+{
+    border-bottom:solid 1px #99bce8;
+    background:#D3E1F1;
+}
+
+.ggs-panel-footer
+{
+    border-top:solid 1px #99bce8;
+    background:#D3E1F1;
+}
+
+.ggs-panel-collapse .ggs-tools-collapse
+{
+    background:url(images/tools/expand.gif) no-repeat 50% 50%;
+}
+
+/*----------------------------- window -------------------------*/
+.ggs-window .ggs-panel-header
+{
+    background:#E3E6E8 url(images/window/header.gif) repeat-x 0 0px;
+}
+.ggs-window .ggs-panel-footer
+{
+    background:#D3E1F1;
+}
+
+/*------------------- navbar ------------------*/
+.ggs-outlookbar-border
+{
+    border:1px solid #99bce8;         
+}
+.ggs-outlookbar .ggs-outlookbar-groupHeader
+{
+    background:#d9e8fb url(images/navbar/header.gif) repeat-x 0 0;    
+    border-color:#99bce8;
+}
+.ggs-outlookbar .ggs-outlookbar-groupTitle
+{
+    color:Black;
+    font-weight:normal;
+}
+.ggs-outlookbar .ggs-outlookbar-group 
+{
+    border-color:#99bce8;
+}
+.ggs-outlookbar .ggs-outlookbar-groupBody
+{    
+    border-color:#99bce8;
+}
+/* view2 */
+.ggs-outlookbar-view2 .ggs-outlookbar-groupHeader
+{
+    border:solid 1px #99bce8; 
+}
+.ggs-outlookbar-view2 .ggs-outlookbar-groupBody
+{    
+    background:#fff;
+}
+/* view3 */
+.ggs-outlookbar-view3 .ggs-outlookbar-group
+{
+    border:solid 1px #99bce8; 
+}
+
+.ggs-outlookbar .ggs-tools-collapse
+{
+    width:15px;	
+}
+.ggs-outlookbar .ggs-outlookbar-expand .ggs-tools-collapse
+{
+    background:url(images/navbar/expand.gif) no-repeat 50% 50%;   
+}
+.ggs-outlookbar .ggs-outlookbar-collapse .ggs-tools-collapse
+{
+    background:url(images/navbar/collapse.gif) no-repeat 50% 50%;   
+}
+
+
+/*----------------------- splitter -----------------------*/
+.ggs-splitter-border
+{
+    border:solid 1px #99bce8;     
+}
+.ggs-splitter .ggs-splitter-pane1{
+    border-color:#99bce8;
+}
+.ggs-splitter .ggs-splitter-pane2{
+    border-color:#99bce8;
+}
+
+/*----------------------- layout -----------------------*/
+.ggs-layout-border
+{
+    
+}
+.ggs-layout-region
+{
+    border-color:#90b5e3;    
+}
+.ggs-layout-region-header
+{
+    background:url(images/layout/header.gif) repeat-x 0 0;
+    border-bottom:solid 1px #99bce8;
+}
+.ggs-layout-proxy
+{
+    border-color:#90b5e3;
+    background:#D2E0F2;
+}
+.ggs-layout-proxy-hover
+{
+    background:#e1f0f2;    
+}
+
+.ggs-layout-region-west .ggs-tools-collapse
+{
+    background:url(images/layout/west.gif) no-repeat 50% 50%;
+}
+.ggs-layout-region-east .ggs-tools-collapse
+{
+    background:url(images/layout/east.gif) no-repeat 50% 50%;
+}
+.ggs-layout-region-north .ggs-tools-collapse
+{
+    background:url(images/layout/north.gif) no-repeat 50% 50%;
+}
+.ggs-layout-region-south .ggs-tools-collapse
+{
+    background:url(images/layout/south.gif) no-repeat 50% 50%;
+}
+
+.ggs-layout-proxy-west .ggs-tools-collapse
+{
+    background:url(images/layout/east.gif) no-repeat 50% 50%;
+}
+.ggs-layout-proxy-east .ggs-tools-collapse
+{
+    background:url(images/layout/west.gif) no-repeat 50% 50%;
+}
+.ggs-layout-proxy-north .ggs-tools-collapse
+{
+    background:url(images/layout/south.gif) no-repeat 50% 50%;
+}
+.ggs-layout-proxy-south .ggs-tools-collapse
+{
+    background:url(images/layout/north.gif) no-repeat 50% 50%;
+}
+
+/*------------------------- menu --------------------------------*/
+
+.ggs-menu
+{
+	background:#f0f0f0 url(images/menu/menu.gif) repeat-y -5px 0;		
+	border-color:#89b1e4;
+    color:black;
+}
+.ggs-menuitem
+{
+    line-height:20px;    
+}
+.ggs-menuitem-hover
+{
+    border-color:#80a4d0;
+	background:#d6e6fa url(images/menu/hover.gif) repeat-x;	
+}
+.ggs-menu-popup
+{
+    border-color:#80a4d0;
+	background:#d6e6fa url(images/menu/hover.gif) repeat-x;	
+}
+.ggs-menuitem-selected
+{
+    border-color:#80a4d0;
+    background:#DBDDE2 url(images/menu/pressed.png) repeat-x 0 0;
+}
+.ggs-menuitem-text, .ggs-menuitem-text a
+{
+    color:black;
+}
+.ggs-separator
+{
+    border-top:solid 1px #8EAADE;
+}
+
+/* menu horizontal */
+.ggs-menu-horizontal .ggs-menu-inner
+{
+    background:#d3e1f1 url(images/menu/hmenu.gif) repeat-x 0 0;
+}
+.ggs-menu-horizontal .ggs-menuitem-hover
+{
+    border:solid 1px #80a4d0;
+    background:#d6e6fa url(images/menu/hover.gif) repeat-x;	
+}
+.ggs-menu-horizontal  .ggs-menu-popup
+{
+    border:solid 1px #80a4d0;
+    background:#d6e6fa url(images/menu/hover.gif) repeat-x;	
+    border-bottom:0px;
+}
+
+/*---------------------- listbox -----------------------------*/
+.ggs-listbox-border
+{    
+    border:#98c0f4 1px solid;
+}
+.ggs-listbox-border td
+{
+    line-height:20px;       
+}
+.ggs-listbox-item td{
+	border-top:white 1px dotted;
+	border-bottom:white 1px dotted;	
+}
+.ggs-listbox-item-hover td{
+    background:#dfe8f6;
+	border-top:#8eabe4 1px dotted;
+	border-bottom:#8eabe4 1px dotted;
+}
+.ggs-listbox-item-selected td{
+	background:#cbdaf0;
+	border-top:#8eabe4 1px dotted;
+	border-bottom:#8eabe4 1px dotted;
+}
+.ggs-listbox-header
+{
+    background:#E7EBEF url(images/listbox/header.png) repeat-x 0 0;    
+    border-bottom:solid 1px #a5acb5;
+}
+
+/*------------------- treegrid --------------------*/
+.ggs-treegrid-border
+{
+    border:1px solid #98c0f4;
+}
+
+.ggs-treegrid-header
+{
+    border-bottom:none;
+}
+.ggs-treegrid-headerInner
+{
+    background:#E7EBEF url(images/treegrid/header.png) repeat-x 0 0;
+}
+.ggs-treegrid td
+{
+    border-right:solid 1px #d0d0d0;
+    border-bottom:solid 1px #d0d0d0;        
+}
+.ggs-treegrid-header td
+{
+    border-right:solid 1px #d0d0d0;
+}
+
+.ggs-treegrid-selectedNode
+{
+	background:#cbdaf0;
+}
+.ggs-treegrid-hoverNode
+{
+    background:#dfe8f6;
+}
+/*
+.ggs-treegrid-expand .ggs-treegrid-ec-icon
+{
+	background-image:url(images/treegrid/expand.gif);
+	background-position:50% 50%;
+}
+.ggs-treegrid-collapse .ggs-treegrid-ec-icon
+{
+	background-image:url(images/treegrid/collapse.gif);
+	background-position:50% 50%;
+}*/
+.ggs-treegrid-leaf
+{
+    background-image:url(images/treegrid/file.png);
+}
+.ggs-treegrid-folder
+{
+    background-image:url(images/treegrid/folder.gif);
+}
+
+/*---------------------- calendar -----------------------------*/
+.ggs-calendar
+{    
+    border:1px solid #98c0f4;       
+}
+.ggs-calendar-header
+{   
+    background:#cad8ec url(images/calendar/footer.gif) repeat-x 0 0;    
+    border-bottom:solid 1px #9bb5d3;    
+}
+.ggs-calendar-footer
+{
+    border-top:solid 1px #b2d1f5;
+    background:#cad8ec url(images/calendar/footer.gif) repeat-x 0 0;    
+}
+.ggs-calendar-tadayButton, .ggs-calendar-clearButton,
+.ggs-calendar-okButton, .ggs-calendar-cancelButton
+{
+	background:url(images/button/button.gif) repeat-x 0px 50%;
+	border:solid 1px #b5afaf;	
+    color:#222;
+}
+.ggs-calendar-menu-selected, a:hover.ggs-calendar-menu-selected
+{
+    color:#333;
+    background:#dae5f3;
+    border:solid 1px #8db2e3;
+}
+
+.ggs-calendar .ggs-calendar-selected
+{
+    color:#333;
+    background:#dae5f3;
+    border:solid 1px #8db2e3;
+}
+.ggs-calendar .ggs-calendar-today
+{
+    border:1px solid #C00000;
+}
+.ggs-calendar-daysheader td
+{border-bottom:solid 1px #b2d1f5;    
+}
+    
+/*---------------------- tabs -----------------------------*/
+
+.ggs-tabs-leftButton, .ggs-tabs-rightButton
+{
+    border:solid 1px #b5afaf;
+    background-color:#EBEBEE;
+}
+a:hover.ggs-tabs-leftButton,a:hover.ggs-tabs-rightButton
+{
+    border:solid 1px #80a4d0;
+    background-color:#E1E8FD;
+}
+/* top */
+.ggs-tabs-bodys
+{
+    border-color:#8CB2E2;
+}
+.ggs-tabs-space
+{
+    border-color:#8CB2E2;
+}
+.ggs-tabs-space2
+{
+    border-color:#8CB2E2;
+}
+
+.ggs-tab
+{
+    background: #EBEBEE url(images/tabs/tab.gif) repeat-x 0 0;  
+    border: 1px solid #8CB2E2;
+    color: #333;    
+    
+}
+.ggs-tab-hover
+{    
+    background:#E1E8FD url(images/tabs/hover.gif) repeat-x 0 0; 
+}
+.ggs-tab-active
+{
+    border-bottom:solid 1px #deecfd;
+    background:#E1E8FD url(images/tabs/pressed.gif) repeat-x 0 0;  
+}
+
+/* bottom */
+.ggs-tabs-position-bottom .ggs-tabs-space,
+.ggs-tabs-position-bottom .ggs-tabs-space2
+{
+    border:0;
+    border-top: 1px solid #8CB2E2;
+}
+.ggs-tabs-position-bottom .ggs-tabs-bodys
+{    
+    border:solid 1px #99bce8;
+    border-bottom:0;
+}
+.ggs-tabs-position-bottom .ggs-tab-active
+{
+    border-top:solid 1px white;
+    border-bottom:solid 1px #99bce8;
+}
+
+/* left */
+.ggs-tabs-position-left .ggs-tabs-space,
+.ggs-tabs-position-left .ggs-tabs-space2
+{
+    border:0;
+    border-right: 1px solid #99bce8;
+}
+.ggs-tabs-position-left .ggs-tabs-bodys
+{
+    border:solid 1px #99bce8;
+    border-left:0;
+}
+.ggs-tabs-position-left .ggs-tab-active
+{    
+    border:solid 1px #99bce8;
+    border-right:solid 1px white;
+}
+
+/* right */
+.ggs-tabs-position-right .ggs-tabs-space,
+.ggs-tabs-position-right .ggs-tabs-space2
+{
+    border:0;
+    border-left: 1px solid #99bce8;
+}
+.ggs-tabs-position-right .ggs-tabs-bodys
+{    
+    border:solid 1px #99bce8;
+    border-right:0;
+}
+.ggs-tabs-position-right .ggs-tab-active
+{    
+    border:solid 1px #99bce8;
+    border-left:solid 1px white;
+}
+
+/*---------------------- tree -----------------------------*/
+
+
+.ggs-tree-hottrack .ggs-tree-node-hover
+{
+    background:url(images/tree/button.gif) repeat-x 0px 50%;
+	border:solid 1px #b5afaf;		  
+}
+.ggs-tree-selectedNode .ggs-tree-nodeshow
+{
+    background:#e2f2fe url(images/tree/hover.gif) repeat-x 0px 50%;
+	border:solid 1px #80a4d0;	
+}
+
+.ggs-tree-leaf
+{
+    background-image:url(images/tree/leaf.gif);
+}
+.ggs-tree-folder
+{
+    background-image:url(images/tree/folder.gif);
+}
+.ggs-tree-expand .ggs-tree-folder
+{
+    background-image:url(images/tree/folder-open.gif);
+}
+
+/*------------------- grid --------------------*/
+.ggs-grid-border
+{
+    border-color:#99bce8;
+}
+.ggs-grid-header
+{
+    background:url(images/grid/header.gif) repeat-x scroll left top #e2e4e6;
+}
+.ggs-grid-headerCell, .ggs-grid-topRightCell
+{
+    background:url(images/grid/header.gif) repeat-x scroll left top #e2e4e6;
+    border-right:#c5c5c5 1px solid;
+    border-bottom:#c5c5c5 1px solid;
+}
+.ggs-grid-cell
+{
+    border-color:#d0d0d0;
+    border-bottom-color:#d0d0d0;
+}
+.ggs-grid-footer
+{
+    border-top:solid 1px #99bce8;    
+    background:url(images/grid/footer.gif) repeat-x scroll left top #d4e2f1;
+}
+
+
+body .ggs-grid-row-hover, body .ggs-grid-row-hover .ggs-grid-frozenCell
+{
+    background:#ecedef;    
+}
+body .ggs-grid-row-selected, body .ggs-grid-row-selected .ggs-grid-frozenCell
+{
+    background:#dfe8f6;		
+}
+
+/*------------------- pager --------------------*/
+.ggs-pager-first
+{    
+    background:url(images/pager/first.gif) no-repeat;
+}
+.ggs-pager-prev
+{
+    background-image:url(images/pager/prev.gif);
+}
+.ggs-pager-next
+{
+    background-image:url(images/pager/next.gif);
+}
+.ggs-pager-last
+{
+    background-image:url(images/pager/last.gif);
+}

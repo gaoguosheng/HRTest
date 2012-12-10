@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<!-- 文件上传大小限制 -->
+	<constant name="struts.multipart.maxSize" value="5242880" />
+	<!-- 动态方法 -->
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
+	<!-- 开发模式 -->
+	<constant name="struts.devMode" value="true" />
+	<!-- 设置action扩展名 -->
+	<constant name="struts.action.extension" value="action" />
+	<!-- 设置ONGL可以访问静态方法 -->
+	<constant name="struts.ognl.allowStaticMethodAccess" value="true" />
+
+	<!-- 基包，所有包继承基包 -->
+	<package name="basePackage" extends="struts-default" abstract="true">
+	</package>
+	<package name="default" namespace="/" extends="basePackage">
+		<action name="login" class="com.ggs.hrtest.action.LoginAction"></action>
+	</package>
+
+	<package name="main" namespace="/" extends="basePackage">
+		<action name="user" class="com.ggs.hrtest.action.UserAction"></action>
+        <action name="test" class="com.ggs.hrtest.action.TestAction"></action>
+	</package>
+</struts>    
