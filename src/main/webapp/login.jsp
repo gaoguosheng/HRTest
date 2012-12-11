@@ -63,7 +63,7 @@
 <script type="text/javascript">
 
    //初始化
-    $("#username").val("test");
+    $("#username").val("高国生");
    $("#pwd").val("123456");
 
     ggs.parse();

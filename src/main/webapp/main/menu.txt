@@ -3,12 +3,23 @@
 	
 	{id: "11", text: "职业经理人压力应变能力测评", pid: "1",url:"test!test.action?testid=1"},
 	{id: "12", text: "心理测试", pid: "1",url:"test!test.action?testid=2"},
+	{id: "13", text: "素质测试", pid: "1",url:"test!test.action?testid=3"},
+	{id: "14", text: "判断能力测试题", pid: "1",url:"test!test.action?testid=4"},
+	{id: "15", text: "霍兰德职业倾向测验量表", pid: "1",url:"test!test.action?testid=5"},
+	{id: "16", text: "艾森克情绪稳定性测验", pid: "1",url:"test!test.action?testid=6"},
+	{id: "17", text: "FPA性格色彩测试题及结果分析", pid: "1",url:"test!test.action?testid=7"},
+	{id: "18", text: "DISC职业性格测评", pid: "1",url:"test!test.action?testid=8"},
+	{id: "19", text: "MBTI职业性格测试题", pid: "1",url:"test!test.action?testid=9"},
+	{id: "101", text: "管理能力的测评", pid: "1",url:"test!test.action?testid=10"},
+	{id: "102", text: "基层岗位招聘笔试题", pid: "1",url:"test!test.action?testid=11"},
+	{id: "103", text: "应届生一般能力测验", pid: "1",url:"test!test.action?testid=12"},
+	{id: "104", text: "招聘笔试之综合能力测试题", pid: "1",url:"test!test.action?testid=13"},
 
 	{id: "2", text: "测试分析",url:"usertest.jsp"},
 
 	{id: "3", text: "系统管理"},
-	{id: "31", text: "用户管理", pid: "3",url:""},
-    {id: "32", text: "试卷管理", pid: "3",url:""},
-    {id: "33", text: "题目管理", pid: "3",url:""}
+	{id: "31", text: "用户管理", pid: "3",url:"user.jsp"},
+    {id: "32", text: "试卷管理", pid: "3",url:""}
+
 
 ]

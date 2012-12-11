@@ -234,6 +234,23 @@ public class HibernateUtil {
     }
 
 
+    public static void batchSaveOrUpdate(Object[]o){
+        Session session = getSession();
+        Transaction tx = session.beginTransaction();
+        try{
+            for(Object po:o){
+                session.saveOrUpdate(po);
+            }
+            tx.commit();
+        }catch (Exception e){
+            tx.rollback();
+            e.printStackTrace();
+        }finally {
+            closeSession();
+        }
+    }
+
+
     public static int countForInt(String sql){
         int result=0;
         Session session = getSession();

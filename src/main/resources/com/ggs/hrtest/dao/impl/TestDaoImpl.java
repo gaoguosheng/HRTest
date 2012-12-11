@@ -15,7 +15,7 @@ import java.util.List;
  * Time: 下午2:16
  * To change this template use File | Settings | File Templates.
  */
-public class TestDaoImpl implements ITestDao {
+public class TestDaoImpl extends BaseDAO implements ITestDao {
 
     /**
      * 获取试卷题目
@@ -62,20 +62,9 @@ public class TestDaoImpl implements ITestDao {
      * 获取测试结果列表
      * */
     public PageBean getUserTestList(PageParam param){
-        PageBean pageBean = new PageBean();
         StringBuilder sql = new StringBuilder();
         sql.append(" select * from v_usertest where 1=1");
-
-        if(NullUtil.isNotNull(param.getSortField())){
-            sql.append(" order by ");
-            sql.append(param.getSortField());
-            sql.append(" ");
-            sql.append(param.getSortOrder());
-        }
-        int total = HibernateUtil.countForInt(sql.toString());
-        List data = HibernateUtil.sqlQuery(sql.toString(), param.getPageIndex(), param.getPageSize());
-        pageBean.setTotal(total);
-        pageBean.setData(data);
+        PageBean pageBean = this.getPageBean(sql.toString(),param);
         return pageBean;
     }
 

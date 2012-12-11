@@ -2,12 +2,15 @@ package com.ggs.hrtest.dao.impl;
 
 import java.util.List;
 
+import com.ggs.hrtest.bean.PageBean;
+import com.ggs.hrtest.bean.PageParam;
 import com.ggs.hrtest.bean.User;
 import com.ggs.hrtest.dao.IUserDao;
 import com.ggs.util.HibernateUtil;
+import com.ggs.util.NullUtil;
 
 
-public class UserDaoImpl implements IUserDao {
+public class UserDaoImpl extends BaseDAO implements IUserDao {
 
 	@Override
 	public User checkUserExist(User user) {
@@ -23,6 +26,21 @@ public class UserDaoImpl implements IUserDao {
         User u = (User)HibernateUtil.get(User.class,user.getUserid());
         u.setPwd(user.getPwd());
         HibernateUtil.update(u);
+    }
+
+    public void saveUser(User user){
+        HibernateUtil.save(user);
+    }
+
+    public PageBean getUserList(User user,PageParam param){
+        StringBuilder sql = new StringBuilder();
+        sql.append(" select * from t_user where 1=1 and username<>'admin'");
+        PageBean pageBean =this.getPageBean(sql.toString(),param);
+        return pageBean;
+    }
+
+    public void saveUsers(User[]users){
+        HibernateUtil.batchSaveOrUpdate(users);
     }
 
 }

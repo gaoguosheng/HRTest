@@ -1,5 +1,6 @@
 package com.ggs.hrtest.action;
 
+import com.ggs.hrtest.bean.PageBean;
 import com.ggs.hrtest.bean.User;
 import com.ggs.hrtest.dao.IUserDao;
 import com.ggs.hrtest.dao.impl.UserDaoImpl;
@@ -31,5 +32,17 @@ public class UserAction extends BaseAction implements ModelDriven<User>{
         this.userDao.updatePwd(user);
     }
 
+    /**
+     * 添加用户
+     * */
+    public void saveUsers(){
+        User[]users = (User[]) this.getJsonObject(User[].class);
+        this.userDao.saveUsers(users);
+    }
+
+    public void getUserList(){
+        PageBean pageBean = userDao.getUserList(this.getModel(),this.getPageParam());
+        this.outJson(pageBean);
+    }
 
 }

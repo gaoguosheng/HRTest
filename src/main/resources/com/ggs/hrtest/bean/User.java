@@ -24,7 +24,7 @@ public class User implements Serializable {
     @GeneratedValue(generator = "generator")
     private Integer userid;
     private String username;
-    private String pwd;
+    private String pwd="e10adc3949ba59abbe56e057f20f883e";
 
 
     public Integer getUserid() {

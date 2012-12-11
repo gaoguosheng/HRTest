@@ -27,7 +27,7 @@ public class UserFilter implements Filter {
         HttpServletResponse response = (HttpServletResponse)servletResponse;
         HttpSession session  = request.getSession();
         if(session.getAttribute("admin")==null){
-            response.sendRedirect(request.getContextPath()+"/login.jsp");
+            response.getWriter().print("<script>top.location='"+request.getContextPath()+"/login.jsp';</script>");
         }else{
             filterChain.doFilter(request,response);
         }
