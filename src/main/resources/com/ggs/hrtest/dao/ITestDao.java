@@ -53,5 +53,37 @@ public interface ITestDao {
      * */
     public TestResult getTestResult(int testid,int score);
 
+    /**
+     * 获取试卷列表
+     * */
+    public List getTestList();
 
+    /**
+     * 获取题目列表
+     * */
+    public PageBean getTopicList(int testid,PageParam param);
+    /**
+     * 获取题目信息
+     * */
+    public Topic getATopic(int topicid);
+
+    /**
+     * 保存题目信息
+     * */
+    public void saveTopic(Topic topic,OptionAnswer[]answers);
+
+    /**
+     * 删除题目
+     * */
+    public void delTopic(int topicid);
+
+    /**
+     * 删除答案选项
+     * */
+    public void delOptionAnswer(int optansid);
+
+    /**
+     * 获取答案选项列表
+     * */
+    public PageBean getOptionAnswerList(int topicid,PageParam param);
 }

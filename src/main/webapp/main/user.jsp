@@ -39,9 +39,9 @@
     <div id="datagrid1" class="ggs-datagrid" style="width:100%;height:100%;"
          url="user!getUserList.action"  idField="userid"
          sizeList="[10,20,30,50]" pageSize="20"
-         allowCellEdit="true" allowCellSelect="true">
+         allowCellEdit="true" allowCellSelect="true" >
         <div property="columns">
-            <div type="indexcolumn"></div>
+            <div type="indexcolumn" width="10"></div>
             <div field="username" >用户名
                 <input property="editor" class="ggs-textbox" style="width:100%;" vtype="required"/>
             </div>

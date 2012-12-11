@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 60005
 File Encoding         : 65001
 
-Date: 2012-12-10 17:04:48
+Date: 2012-12-11 16:46:43
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -26,7 +26,7 @@ CREATE TABLE `t_optionanswer` (
   `score` int(11) DEFAULT NULL,
   `topicid` int(11) DEFAULT NULL,
   PRIMARY KEY (`optansid`)
-) ENGINE=MyISAM AUTO_INCREMENT=35 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=91 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_optionanswer
@@ -65,6 +65,58 @@ INSERT INTO `t_optionanswer` VALUES ('31', '6', '狮子', '20', '7');
 INSERT INTO `t_optionanswer` VALUES ('32', '1', '游泳', '5', '8');
 INSERT INTO `t_optionanswer` VALUES ('33', '2', '喝冷饮', '10', '8');
 INSERT INTO `t_optionanswer` VALUES ('34', '3', '开空调', '15', '8');
+INSERT INTO `t_optionanswer` VALUES ('40', '3', '老鼠', '10', '9');
+INSERT INTO `t_optionanswer` VALUES ('39', '4', '苍蝇', '15', '9');
+INSERT INTO `t_optionanswer` VALUES ('41', '2', '猪', '5', '9');
+INSERT INTO `t_optionanswer` VALUES ('42', '1', '蛇', '2', '9');
+INSERT INTO `t_optionanswer` VALUES ('43', '5', '战争枪战类', '15', '10');
+INSERT INTO `t_optionanswer` VALUES ('44', '4', '伦理道德类', '10', '10');
+INSERT INTO `t_optionanswer` VALUES ('45', '3', '自然科学类', '5', '10');
+INSERT INTO `t_optionanswer` VALUES ('46', '2', '童话神话类', '3', '10');
+INSERT INTO `t_optionanswer` VALUES ('47', '1', '悬疑推理类', '2', '10');
+INSERT INTO `t_optionanswer` VALUES ('48', '5', '手机', '10', '11');
+INSERT INTO `t_optionanswer` VALUES ('49', '4', '纸巾', '5', '11');
+INSERT INTO `t_optionanswer` VALUES ('50', '3', '记事本', '3', '11');
+INSERT INTO `t_optionanswer` VALUES ('51', '2', '口红', '2', '11');
+INSERT INTO `t_optionanswer` VALUES ('52', '1', '打火机', '2', '11');
+INSERT INTO `t_optionanswer` VALUES ('53', '5', '步行', '15', '12');
+INSERT INTO `t_optionanswer` VALUES ('54', '4', '飞机', '10', '12');
+INSERT INTO `t_optionanswer` VALUES ('55', '3', '汽车', '5', '12');
+INSERT INTO `t_optionanswer` VALUES ('56', '2', '自行车', '3', '12');
+INSERT INTO `t_optionanswer` VALUES ('57', '1', '火车', '2', '12');
+INSERT INTO `t_optionanswer` VALUES ('58', '6', '红', '15', '13');
+INSERT INTO `t_optionanswer` VALUES ('59', '5', '黄', '12', '13');
+INSERT INTO `t_optionanswer` VALUES ('60', '4', '白', '8', '13');
+INSERT INTO `t_optionanswer` VALUES ('61', '3', '蓝', '5', '13');
+INSERT INTO `t_optionanswer` VALUES ('62', '2', '黑', '3', '13');
+INSERT INTO `t_optionanswer` VALUES ('63', '1', '紫', '2', '13');
+INSERT INTO `t_optionanswer` VALUES ('64', '6', '蹦极', '15', '14');
+INSERT INTO `t_optionanswer` VALUES ('65', '5', '足球', '10', '14');
+INSERT INTO `t_optionanswer` VALUES ('66', '4', '拳击', '8', '14');
+INSERT INTO `t_optionanswer` VALUES ('67', '3', '乒乓球', '5', '14');
+INSERT INTO `t_optionanswer` VALUES ('68', '2', '自行车', '3', '14');
+INSERT INTO `t_optionanswer` VALUES ('69', '1', '瑜珈', '2', '14');
+INSERT INTO `t_optionanswer` VALUES ('70', '5', '城中区', '15', '15');
+INSERT INTO `t_optionanswer` VALUES ('71', '4', '森林', '10', '15');
+INSERT INTO `t_optionanswer` VALUES ('72', '3', '海边', '5', '15');
+INSERT INTO `t_optionanswer` VALUES ('73', '2', '草原', '3', '15');
+INSERT INTO `t_optionanswer` VALUES ('74', '1', '湖边', '2', '15');
+INSERT INTO `t_optionanswer` VALUES ('75', '5', '雷电', '15', '16');
+INSERT INTO `t_optionanswer` VALUES ('76', '4', '雾', '10', '16');
+INSERT INTO `t_optionanswer` VALUES ('77', '3', '雨', '5', '16');
+INSERT INTO `t_optionanswer` VALUES ('78', '2', '风', '3', '16');
+INSERT INTO `t_optionanswer` VALUES ('79', '1', '雪', '2', '16');
+INSERT INTO `t_optionanswer` VALUES ('80', '5', '三十层', '15', '17');
+INSERT INTO `t_optionanswer` VALUES ('81', '4', '十八层', '10', '17');
+INSERT INTO `t_optionanswer` VALUES ('82', '3', '二十三层', '5', '17');
+INSERT INTO `t_optionanswer` VALUES ('83', '2', '一层', '3', '17');
+INSERT INTO `t_optionanswer` VALUES ('84', '1', '七层', '2', '17');
+INSERT INTO `t_optionanswer` VALUES ('85', '6', '北京', '15', '18');
+INSERT INTO `t_optionanswer` VALUES ('86', '5', '杭州', '10', '18');
+INSERT INTO `t_optionanswer` VALUES ('87', '4', '西安', '8', '18');
+INSERT INTO `t_optionanswer` VALUES ('88', '3', '昆明', '5', '18');
+INSERT INTO `t_optionanswer` VALUES ('89', '2', '拉萨', '3', '18');
+INSERT INTO `t_optionanswer` VALUES ('90', '1', '丽江', '1', '18');
 
 -- ----------------------------
 -- Table structure for `t_test`
@@ -131,7 +183,7 @@ CREATE TABLE `t_topic` (
   `content` varchar(500) DEFAULT NULL,
   `testid` int(11) DEFAULT NULL,
   PRIMARY KEY (`topicid`)
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_topic
@@ -144,6 +196,16 @@ INSERT INTO `t_topic` VALUES ('5', '2', '你平时休闲经常去的地方', '2'
 INSERT INTO `t_topic` VALUES ('6', '3', '你认为容易吸引你的人是？', '2');
 INSERT INTO `t_topic` VALUES ('7', '4', '如果你可以成为一种动物，你希望自己是哪种？', '2');
 INSERT INTO `t_topic` VALUES ('8', '5', '天气很热，你更愿意选择什么方式解暑？', '2');
+INSERT INTO `t_topic` VALUES ('9', '6', '如果必须与一个你讨厌的动物或昆虫在一起生活，你能容忍哪一个', '2');
+INSERT INTO `t_topic` VALUES ('10', '7', '你喜欢看哪类电影、电视剧？', '2');
+INSERT INTO `t_topic` VALUES ('11', '8', '以下哪个是你身边必带的物品？', '2');
+INSERT INTO `t_topic` VALUES ('12', '9', '你出行时喜欢坐什么交通工具？', '2');
+INSERT INTO `t_topic` VALUES ('13', '10', '以下颜色你更喜欢哪种？', '2');
+INSERT INTO `t_topic` VALUES ('14', '11', '下列运动中挑选一个你最喜欢的（不一定擅长）？', '2');
+INSERT INTO `t_topic` VALUES ('15', '12', '如果你拥有一座别墅，你认为它应当建立在哪里？', '2');
+INSERT INTO `t_topic` VALUES ('16', '13', '你更喜欢以下哪种天气现象？', '2');
+INSERT INTO `t_topic` VALUES ('17', '14', '你希望自己的窗口在一座30层大楼的第几层？', '2');
+INSERT INTO `t_topic` VALUES ('18', '15', '你认为自己更喜欢在以下哪一个城市中生活？', '2');
 
 -- ----------------------------
 -- Table structure for `t_user`
@@ -154,13 +216,14 @@ CREATE TABLE `t_user` (
   `username` varchar(20) DEFAULT NULL,
   `pwd` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`userid`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_user
 -- ----------------------------
 INSERT INTO `t_user` VALUES ('1', 'admin', '202cb962ac59075b964b07152d234b70');
-INSERT INTO `t_user` VALUES ('2', 'test', 'e10adc3949ba59abbe56e057f20f883e');
+INSERT INTO `t_user` VALUES ('2', '高国生', 'e10adc3949ba59abbe56e057f20f883e');
+INSERT INTO `t_user` VALUES ('3', 'test', 'e10adc3949ba59abbe56e057f20f883e');
 
 -- ----------------------------
 -- Table structure for `t_useranswer`
@@ -172,7 +235,7 @@ CREATE TABLE `t_useranswer` (
   `optansid` int(11) DEFAULT NULL,
   `utestid` int(11) DEFAULT NULL,
   PRIMARY KEY (`answid`)
-) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_useranswer
@@ -185,6 +248,9 @@ INSERT INTO `t_useranswer` VALUES ('5', '2', '6', '1');
 INSERT INTO `t_useranswer` VALUES ('6', '3', '8', '1');
 INSERT INTO `t_useranswer` VALUES ('10', '7', '28', '2');
 INSERT INTO `t_useranswer` VALUES ('11', '8', '33', '2');
+INSERT INTO `t_useranswer` VALUES ('12', '1', '1', '3');
+INSERT INTO `t_useranswer` VALUES ('13', '2', '6', '3');
+INSERT INTO `t_useranswer` VALUES ('14', '3', '9', '3');
 
 -- ----------------------------
 -- Table structure for `t_usertest`
@@ -196,13 +262,14 @@ CREATE TABLE `t_usertest` (
   `testid` int(11) DEFAULT NULL,
   `creattime` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`utestid`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_usertest
 -- ----------------------------
 INSERT INTO `t_usertest` VALUES ('1', '2', '1', '2012-12-10');
 INSERT INTO `t_usertest` VALUES ('2', '2', '2', '2012-12-10');
+INSERT INTO `t_usertest` VALUES ('3', '2', '1', '2012-12-11');
 
 -- ----------------------------
 -- View structure for `v_useranswer`

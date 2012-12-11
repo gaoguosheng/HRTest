@@ -25,7 +25,7 @@ public class TestAction extends BaseAction implements ModelDriven<Test>{
     }
 
     /**
-     * 获取试卷
+     * 试卷测试
      * */
     public void test(){
         List topicList = testDao.getTopics(model.getTestid());
@@ -75,7 +75,7 @@ public class TestAction extends BaseAction implements ModelDriven<Test>{
     }
 
     /**
-     * 获取测试解析
+     * 获取测试答题解析
      * */
     public void getTestResult(){
         int testid = this.getIntParam("testid");
@@ -84,5 +84,60 @@ public class TestAction extends BaseAction implements ModelDriven<Test>{
         this.outJson(testResult);
     }
 
+    /**
+     * 获取试卷列表
+     * */
+    public void getTestList(){
+        List testList = this.testDao.getTestList();
+        this.outJson(testList);
+    }
 
+    /**
+     * 获取题目列表
+     * */
+    public void getTopicList(){
+        PageBean pageBean = this.testDao.getTopicList(this.getModel().getTestid(),this.getPageParam());
+        this.outJson(pageBean);
+    }
+
+    /**
+     * 获取题目信息
+     * */
+    public void getATopic(){
+        Topic topic = this.testDao.getATopic(this.getIntParam("topicid"));
+        this.outJson(topic);
+    }
+
+
+
+    /**
+     * 保存题目
+     * */
+    public void saveTopic(){
+        Topic topic = (Topic) this.getJsonObject("formdata",Topic.class);
+        OptionAnswer[] answers = (OptionAnswer[])this.getJsonObject("griddata",OptionAnswer[].class);
+        this.testDao.saveTopic(topic,answers);
+    }
+
+    /**
+     * 删除题目
+     * */
+    public void delTopic(){
+        this.testDao.delTopic(this.getIntParam("topicid"));
+    }
+
+    /**
+     * 删除答案选项
+     * */
+    public void delOptionAnswer(){
+        this.testDao.delOptionAnswer(this.getIntParam("optansid"));
+    }
+
+    /**
+     * 获取答案选项列表
+     * */
+    public void getOptionAnswerList(){
+        PageBean pageBean = this.testDao.getOptionAnswerList(this.getIntParam("topicid"),this.getPageParam());
+        this.outJson(pageBean);
+    }
 }

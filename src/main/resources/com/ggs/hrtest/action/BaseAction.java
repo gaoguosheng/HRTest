@@ -162,7 +162,9 @@ public  class BaseAction extends ActionSupport implements
         }else{
             return -1;
         }
-
+    }
+    public String getParam(String param){
+        return request.getParameter(param);
     }
 	
 

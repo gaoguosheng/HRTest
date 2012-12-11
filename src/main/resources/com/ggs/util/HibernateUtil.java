@@ -138,10 +138,39 @@ public class HibernateUtil {
         }
     }
 
+    public static void saveOrUpdate(Object o){
+        Session session = getSession();
+        Transaction tx = session.beginTransaction();
+        try{
+            session.saveOrUpdate(o);
+            tx.commit();
+        }catch (Exception e){
+            tx.rollback();
+            e.printStackTrace();
+        }finally {
+            closeSession();
+        }
+    }
+
     public static void delete(Object o){
         Session session = getSession();
         Transaction tx = session.beginTransaction();
         try{
+            session.delete(o);
+            tx.commit();
+        }catch (Exception e){
+            tx.rollback();
+            e.printStackTrace();
+        }finally {
+            closeSession();
+        }
+    }
+
+    public static void delete(Class c,Serializable id){
+        Session session = getSession();
+        Transaction tx = session.beginTransaction();
+        try{
+            Object o = get(c,id);
             session.delete(o);
             tx.commit();
         }catch (Exception e){
@@ -282,6 +311,37 @@ public class HibernateUtil {
         return result;
     }
 
+    public static void executeUpdate(String hql){
+        Session session = getSession();
+        Transaction tx = session.beginTransaction();
+        try{
+            Query query = session.createQuery(hql);
+            query.executeUpdate();
+            tx.commit();
+        }catch (Exception e){
+            tx.rollback();
+            e.printStackTrace();
+        }finally {
+            closeSession();
+        }
+    }
 
+    public static void executeUpdate(String hql,Object[]o){
+        Session session = getSession();
+        Transaction tx = session.beginTransaction();
+        try{
+            Query query = session.createQuery(hql);
+            for(int i=0;i<o.length;i++){
+                query.setParameter(i,o[i]);
+            }
+            query.executeUpdate();
+            tx.commit();
+        }catch (Exception e){
+            tx.rollback();
+            e.printStackTrace();
+        }finally {
+            closeSession();
+        }
+    }
 
 }

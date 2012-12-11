@@ -85,4 +85,67 @@ public class TestDaoImpl extends BaseDAO implements ITestDao {
                 score
         });
     }
+
+    /**
+     * 获取试卷列表
+     * */
+    public List getTestList(){
+        return HibernateUtil.query("from Test");
+    }
+
+    /**
+     * 获取题目列表
+     * */
+    public PageBean getTopicList(int testid,PageParam param){
+        StringBuilder sql = new StringBuilder();
+        sql.append("select * from t_topic where testid="+testid);
+        return this.getPageBean(sql.toString(),param);
+    }
+
+    /**
+     * 获取题目信息
+     * */
+    public Topic getATopic(int topicid){
+        return (Topic)HibernateUtil.get(Topic.class,topicid);
+    }
+
+    /**
+     * 保存题目信息
+     * */
+    public void saveTopic(Topic topic,OptionAnswer[]answers){
+        if(topic.getTopicid()==-1)
+            topic.setTopicid(null);
+        HibernateUtil.saveOrUpdate(topic);
+        for(OptionAnswer answer:answers){
+            answer.setTopicid(topic.getTopicid());
+        }
+        HibernateUtil.batchSaveOrUpdate(answers);
+    }
+
+    /**
+     * 删除题目
+     * */
+    public void delTopic(int topicid){
+        HibernateUtil.executeUpdate("delete from UserAnswer where topicid=?",new Object[]{topicid});
+        HibernateUtil.executeUpdate("delete from OptionAnswer where topicid=?",new Object[]{topicid});
+        HibernateUtil.executeUpdate("delete from Topic where topicid=?",new Object[]{topicid});
+    }
+
+    /**
+     * 删除答案选项
+     * */
+    public void delOptionAnswer(int optansid){
+        HibernateUtil.executeUpdate("delete from UserAnswer where optansid=?",new Object[]{optansid});
+        HibernateUtil.executeUpdate("delete from OptionAnswer where optansid=?",new Object[]{optansid});
+    }
+
+    /**
+     * 获取答案选项列表
+     * */
+    public PageBean getOptionAnswerList(int topicid,PageParam param){
+        StringBuilder sql = new StringBuilder();
+        sql.append("select * from t_optionanswer where topicid="+topicid);
+        PageBean pageBean =this.getPageBean(sql.toString(),param);
+        return pageBean;
+    }
 }
