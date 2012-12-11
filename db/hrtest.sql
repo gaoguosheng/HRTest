@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 60005
 File Encoding         : 65001
 
-Date: 2012-12-11 16:46:43
+Date: 2012-12-11 17:08:08
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -26,7 +26,7 @@ CREATE TABLE `t_optionanswer` (
   `score` int(11) DEFAULT NULL,
   `topicid` int(11) DEFAULT NULL,
   PRIMARY KEY (`optansid`)
-) ENGINE=MyISAM AUTO_INCREMENT=91 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=112 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_optionanswer
@@ -117,6 +117,27 @@ INSERT INTO `t_optionanswer` VALUES ('87', '4', '西安', '8', '18');
 INSERT INTO `t_optionanswer` VALUES ('88', '3', '昆明', '5', '18');
 INSERT INTO `t_optionanswer` VALUES ('89', '2', '拉萨', '3', '18');
 INSERT INTO `t_optionanswer` VALUES ('90', '1', '丽江', '1', '18');
+INSERT INTO `t_optionanswer` VALUES ('91', '3', '你坚持与妻子（或丈夫）心平气和地讨论这些烦心事，从而减轻各自心里的压力。', '1', '19');
+INSERT INTO `t_optionanswer` VALUES ('92', '2', '你试图与家庭外的第三者谈论那些令人生气的事情，以便使自己的感情能被人所理解；', '2', '19');
+INSERT INTO `t_optionanswer` VALUES ('93', '1', '你决定从容不迫地加以忍受，尽量避免争论；', '3', '19');
+INSERT INTO `t_optionanswer` VALUES ('94', '3', '你决定向朋友开诚布公地陈述自己的看法。', '1', '20');
+INSERT INTO `t_optionanswer` VALUES ('95', '2', '认为这在可不必忧虑，因为时间还长，事情是会起变化的；', '2', '20');
+INSERT INTO `t_optionanswer` VALUES ('96', '1', '你说服自己，认识到这种担心纯属多余，应该往好的方面去想；', '3', '20');
+INSERT INTO `t_optionanswer` VALUES ('97', '3', '你想方设法节省开支，调整饮食。', '1', '21');
+INSERT INTO `t_optionanswer` VALUES ('98', '2', '每次看到东西涨价，心头的愤怒便要增添几分，可是还得无可奈何地去买这些东西；', '2', '21');
+INSERT INTO `t_optionanswer` VALUES ('99', '1', '不管怎样涨，决定不改变饮食习惯；', '3', '21');
+INSERT INTO `t_optionanswer` VALUES ('100', '3', '你首先认真地分析了这项工作对自已的要求，然后准备积极地去承担它。', '1', '22');
+INSERT INTO `t_optionanswer` VALUES ('101', '2', '你怀疑自已是否能胜任这项新的任命；', '2', '22');
+INSERT INTO `t_optionanswer` VALUES ('102', '1', '你婉言谢绝，因为要求很严，怕吃不消；', '3', '22');
+INSERT INTO `t_optionanswer` VALUES ('103', '3', '你向医生要来一些镇静剂，以帮助自已度过这段痛苦的时间', '3', '23');
+INSERT INTO `t_optionanswer` VALUES ('104', '2', '你挂断电话，痛哭流泪', '2', '23');
+INSERT INTO `t_optionanswer` VALUES ('105', '1', '你暂时设法控制自已的感情，因为需要你去通知别的熟人；', '1', '23');
+INSERT INTO `t_optionanswer` VALUES ('106', '3', '你认为最好的办法是不与任何一方父母在一起，这样可以减少不必要的麻烦。', '3', '24');
+INSERT INTO `t_optionanswer` VALUES ('107', '2', '你决定在重要的节假日时与自已最喜欢喜的长辈在一起，而在次要的节假日里不与任何一方父母在一起；', '2', '24');
+INSERT INTO `t_optionanswer` VALUES ('108', '1', '你制定出一个严格的五年计划，要求自已统筹兼顾；', '1', '24');
+INSERT INTO `t_optionanswer` VALUES ('109', '3', '你认为自已的身体最终会好起来，所以迟迟不去看病。', '3', '25');
+INSERT INTO `t_optionanswer` VALUES ('110', '2', '你鼓起勇气与家人谈自已的疾病，并及时去找医生看病；', '1', '25');
+INSERT INTO `t_optionanswer` VALUES ('111', '1', '你自已诊断病情；', '2', '25');
 
 -- ----------------------------
 -- Table structure for `t_test`
@@ -183,7 +204,7 @@ CREATE TABLE `t_topic` (
   `content` varchar(500) DEFAULT NULL,
   `testid` int(11) DEFAULT NULL,
   PRIMARY KEY (`topicid`)
-) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_topic
@@ -206,6 +227,13 @@ INSERT INTO `t_topic` VALUES ('15', '12', '如果你拥有一座别墅，你认�
 INSERT INTO `t_topic` VALUES ('16', '13', '你更喜欢以下哪种天气现象？', '2');
 INSERT INTO `t_topic` VALUES ('17', '14', '你希望自己的窗口在一座30层大楼的第几层？', '2');
 INSERT INTO `t_topic` VALUES ('18', '15', '你认为自己更喜欢在以下哪一个城市中生活？', '2');
+INSERT INTO `t_topic` VALUES ('19', '4', '现代化的生活节奏所产生的压力使你和妻子（或丈夫）烦躁易怒，这时你会：', '1');
+INSERT INTO `t_topic` VALUES ('20', '5', '一位你很要好的朋友就要结婚了，但在你看来，这不是一桩美满的婚姻而是一场灾难，这时你会：', '1');
+INSERT INTO `t_topic` VALUES ('21', '6', '你担心物价上涨，但你会：', '1');
+INSERT INTO `t_topic` VALUES ('22', '7', '你的能力得到上司的重视，将要被任命去做一项重要的工作，这时你会：', '1');
+INSERT INTO `t_topic` VALUES ('23', '8', '你的亲戚朋友中有人在意外事故中受了重伤，当你在电话里听到这个不幸消息时，你会：', '1');
+INSERT INTO `t_topic` VALUES ('24', '9', '每逢节假日，你和妻子（或丈夫）之间总有一场争论，到底是拜访自已的双亲还是她（或他）的父母，这时你会：', '1');
+INSERT INTO `t_topic` VALUES ('25', '10', '在你的身体感觉不适时，你会：', '1');
 
 -- ----------------------------
 -- Table structure for `t_user`
@@ -235,7 +263,7 @@ CREATE TABLE `t_useranswer` (
   `optansid` int(11) DEFAULT NULL,
   `utestid` int(11) DEFAULT NULL,
   PRIMARY KEY (`answid`)
-) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=93 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_useranswer
@@ -251,6 +279,84 @@ INSERT INTO `t_useranswer` VALUES ('11', '8', '33', '2');
 INSERT INTO `t_useranswer` VALUES ('12', '1', '1', '3');
 INSERT INTO `t_useranswer` VALUES ('13', '2', '6', '3');
 INSERT INTO `t_useranswer` VALUES ('14', '3', '9', '3');
+INSERT INTO `t_useranswer` VALUES ('15', '1', '3', '4');
+INSERT INTO `t_useranswer` VALUES ('16', '2', '5', '4');
+INSERT INTO `t_useranswer` VALUES ('17', '3', '9', '4');
+INSERT INTO `t_useranswer` VALUES ('18', '4', '10', '5');
+INSERT INTO `t_useranswer` VALUES ('19', '5', '18', '5');
+INSERT INTO `t_useranswer` VALUES ('20', '6', '23', '5');
+INSERT INTO `t_useranswer` VALUES ('21', '7', '27', '5');
+INSERT INTO `t_useranswer` VALUES ('22', '8', '34', '5');
+INSERT INTO `t_useranswer` VALUES ('23', '9', '41', '5');
+INSERT INTO `t_useranswer` VALUES ('24', '10', '43', '5');
+INSERT INTO `t_useranswer` VALUES ('25', '11', '48', '5');
+INSERT INTO `t_useranswer` VALUES ('26', '12', '56', '5');
+INSERT INTO `t_useranswer` VALUES ('27', '13', '58', '5');
+INSERT INTO `t_useranswer` VALUES ('28', '14', '67', '5');
+INSERT INTO `t_useranswer` VALUES ('29', '15', '72', '5');
+INSERT INTO `t_useranswer` VALUES ('30', '16', '79', '5');
+INSERT INTO `t_useranswer` VALUES ('31', '17', '81', '5');
+INSERT INTO `t_useranswer` VALUES ('32', '18', '86', '5');
+INSERT INTO `t_useranswer` VALUES ('33', '4', '11', '6');
+INSERT INTO `t_useranswer` VALUES ('34', '5', '15', '6');
+INSERT INTO `t_useranswer` VALUES ('35', '6', '25', '6');
+INSERT INTO `t_useranswer` VALUES ('36', '7', '31', '6');
+INSERT INTO `t_useranswer` VALUES ('37', '8', '34', '6');
+INSERT INTO `t_useranswer` VALUES ('38', '9', '41', '6');
+INSERT INTO `t_useranswer` VALUES ('39', '10', '47', '6');
+INSERT INTO `t_useranswer` VALUES ('40', '11', '48', '6');
+INSERT INTO `t_useranswer` VALUES ('41', '12', '55', '6');
+INSERT INTO `t_useranswer` VALUES ('42', '13', '61', '6');
+INSERT INTO `t_useranswer` VALUES ('43', '14', '64', '6');
+INSERT INTO `t_useranswer` VALUES ('44', '15', '72', '6');
+INSERT INTO `t_useranswer` VALUES ('45', '16', '79', '6');
+INSERT INTO `t_useranswer` VALUES ('46', '17', '84', '6');
+INSERT INTO `t_useranswer` VALUES ('47', '18', '90', '6');
+INSERT INTO `t_useranswer` VALUES ('48', '4', '14', '7');
+INSERT INTO `t_useranswer` VALUES ('49', '5', '17', '7');
+INSERT INTO `t_useranswer` VALUES ('50', '6', '23', '7');
+INSERT INTO `t_useranswer` VALUES ('51', '7', '31', '7');
+INSERT INTO `t_useranswer` VALUES ('52', '8', '34', '7');
+INSERT INTO `t_useranswer` VALUES ('53', '9', '39', '7');
+INSERT INTO `t_useranswer` VALUES ('54', '10', '47', '7');
+INSERT INTO `t_useranswer` VALUES ('55', '11', '48', '7');
+INSERT INTO `t_useranswer` VALUES ('56', '12', '57', '7');
+INSERT INTO `t_useranswer` VALUES ('57', '13', '60', '7');
+INSERT INTO `t_useranswer` VALUES ('58', '14', '65', '7');
+INSERT INTO `t_useranswer` VALUES ('59', '15', '72', '7');
+INSERT INTO `t_useranswer` VALUES ('60', '16', '78', '7');
+INSERT INTO `t_useranswer` VALUES ('61', '17', '84', '7');
+INSERT INTO `t_useranswer` VALUES ('62', '18', '85', '7');
+INSERT INTO `t_useranswer` VALUES ('63', '4', '14', '8');
+INSERT INTO `t_useranswer` VALUES ('64', '5', '17', '8');
+INSERT INTO `t_useranswer` VALUES ('65', '6', '23', '8');
+INSERT INTO `t_useranswer` VALUES ('66', '7', '31', '8');
+INSERT INTO `t_useranswer` VALUES ('67', '8', '34', '8');
+INSERT INTO `t_useranswer` VALUES ('68', '9', '39', '8');
+INSERT INTO `t_useranswer` VALUES ('69', '10', '47', '8');
+INSERT INTO `t_useranswer` VALUES ('70', '11', '48', '8');
+INSERT INTO `t_useranswer` VALUES ('71', '12', '57', '8');
+INSERT INTO `t_useranswer` VALUES ('72', '13', '60', '8');
+INSERT INTO `t_useranswer` VALUES ('73', '14', '65', '8');
+INSERT INTO `t_useranswer` VALUES ('74', '15', '72', '8');
+INSERT INTO `t_useranswer` VALUES ('75', '16', '78', '8');
+INSERT INTO `t_useranswer` VALUES ('76', '17', '84', '8');
+INSERT INTO `t_useranswer` VALUES ('77', '18', '85', '8');
+INSERT INTO `t_useranswer` VALUES ('78', '4', '14', '9');
+INSERT INTO `t_useranswer` VALUES ('79', '5', '17', '9');
+INSERT INTO `t_useranswer` VALUES ('80', '6', '23', '9');
+INSERT INTO `t_useranswer` VALUES ('81', '7', '31', '9');
+INSERT INTO `t_useranswer` VALUES ('82', '8', '34', '9');
+INSERT INTO `t_useranswer` VALUES ('83', '9', '39', '9');
+INSERT INTO `t_useranswer` VALUES ('84', '10', '47', '9');
+INSERT INTO `t_useranswer` VALUES ('85', '11', '48', '9');
+INSERT INTO `t_useranswer` VALUES ('86', '12', '57', '9');
+INSERT INTO `t_useranswer` VALUES ('87', '13', '60', '9');
+INSERT INTO `t_useranswer` VALUES ('88', '14', '65', '9');
+INSERT INTO `t_useranswer` VALUES ('89', '15', '72', '9');
+INSERT INTO `t_useranswer` VALUES ('90', '16', '78', '9');
+INSERT INTO `t_useranswer` VALUES ('91', '17', '84', '9');
+INSERT INTO `t_useranswer` VALUES ('92', '18', '85', '9');
 
 -- ----------------------------
 -- Table structure for `t_usertest`
@@ -262,7 +368,7 @@ CREATE TABLE `t_usertest` (
   `testid` int(11) DEFAULT NULL,
   `creattime` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`utestid`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_usertest
@@ -270,6 +376,12 @@ CREATE TABLE `t_usertest` (
 INSERT INTO `t_usertest` VALUES ('1', '2', '1', '2012-12-10');
 INSERT INTO `t_usertest` VALUES ('2', '2', '2', '2012-12-10');
 INSERT INTO `t_usertest` VALUES ('3', '2', '1', '2012-12-11');
+INSERT INTO `t_usertest` VALUES ('4', '3', '1', '2012-12-11');
+INSERT INTO `t_usertest` VALUES ('5', '3', '2', '2012-12-11');
+INSERT INTO `t_usertest` VALUES ('6', '3', '2', '2012-12-11');
+INSERT INTO `t_usertest` VALUES ('7', '3', '2', '2012-12-11');
+INSERT INTO `t_usertest` VALUES ('8', '3', '2', '2012-12-11');
+INSERT INTO `t_usertest` VALUES ('9', '3', '2', '2012-12-11');
 
 -- ----------------------------
 -- View structure for `v_useranswer`
