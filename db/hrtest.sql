@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 60005
 File Encoding         : 65001
 
-Date: 2012-12-11 17:08:08
+Date: 2012-12-12 16:37:46
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -26,7 +26,7 @@ CREATE TABLE `t_optionanswer` (
   `score` int(11) DEFAULT NULL,
   `topicid` int(11) DEFAULT NULL,
   PRIMARY KEY (`optansid`)
-) ENGINE=MyISAM AUTO_INCREMENT=112 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=196 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_optionanswer
@@ -138,6 +138,89 @@ INSERT INTO `t_optionanswer` VALUES ('108', '1', '你制定出一个严格的五
 INSERT INTO `t_optionanswer` VALUES ('109', '3', '你认为自已的身体最终会好起来，所以迟迟不去看病。', '3', '25');
 INSERT INTO `t_optionanswer` VALUES ('110', '2', '你鼓起勇气与家人谈自已的疾病，并及时去找医生看病；', '1', '25');
 INSERT INTO `t_optionanswer` VALUES ('111', '1', '你自已诊断病情；', '2', '25');
+INSERT INTO `t_optionanswer` VALUES ('113', '5', '从来不是的', '1', '27');
+INSERT INTO `t_optionanswer` VALUES ('114', '4', '很少是的', '2', '27');
+INSERT INTO `t_optionanswer` VALUES ('115', '3', '有时是的', '3', '27');
+INSERT INTO `t_optionanswer` VALUES ('116', '2', '经常是的', '4', '27');
+INSERT INTO `t_optionanswer` VALUES ('117', '1', '一直是的', '5', '27');
+INSERT INTO `t_optionanswer` VALUES ('118', '5', '从来不是的', '1', '28');
+INSERT INTO `t_optionanswer` VALUES ('119', '4', '很少是的', '2', '28');
+INSERT INTO `t_optionanswer` VALUES ('120', '3', '有时是的', '3', '28');
+INSERT INTO `t_optionanswer` VALUES ('121', '2', '经常是的', '4', '28');
+INSERT INTO `t_optionanswer` VALUES ('122', '1', '一直是的', '5', '28');
+INSERT INTO `t_optionanswer` VALUES ('123', '5', '从来不是的', '5', '29');
+INSERT INTO `t_optionanswer` VALUES ('124', '4', '很少是的', '4', '29');
+INSERT INTO `t_optionanswer` VALUES ('125', '3', '有时是的', '3', '29');
+INSERT INTO `t_optionanswer` VALUES ('126', '2', '经常是的', '2', '29');
+INSERT INTO `t_optionanswer` VALUES ('127', '1', '一直是的', '1', '29');
+INSERT INTO `t_optionanswer` VALUES ('128', '3', '不是', '2', '30');
+INSERT INTO `t_optionanswer` VALUES ('129', '2', '不能确定', '1', '30');
+INSERT INTO `t_optionanswer` VALUES ('130', '1', '是', '0', '30');
+INSERT INTO `t_optionanswer` VALUES ('131', '3', '不是', '2', '31');
+INSERT INTO `t_optionanswer` VALUES ('132', '2', '不能确定', '1', '31');
+INSERT INTO `t_optionanswer` VALUES ('133', '1', '是', '0', '31');
+INSERT INTO `t_optionanswer` VALUES ('134', '3', '不是', '2', '32');
+INSERT INTO `t_optionanswer` VALUES ('135', '2', '不能确定', '1', '32');
+INSERT INTO `t_optionanswer` VALUES ('136', '1', '是', '0', '32');
+INSERT INTO `t_optionanswer` VALUES ('137', '4', 'Ｏ高于Ｍ', '0', '33');
+INSERT INTO `t_optionanswer` VALUES ('138', '3', 'Ｐ高于Ｏ', '1', '33');
+INSERT INTO `t_optionanswer` VALUES ('139', '2', 'Ｏ高于Ｎ', '0', '33');
+INSERT INTO `t_optionanswer` VALUES ('140', '1', 'Ｍ高于Ｐ', '0', '33');
+INSERT INTO `t_optionanswer` VALUES ('141', '3', 'Ｘ绝不会小于Ｃ', '0', '34');
+INSERT INTO `t_optionanswer` VALUES ('142', '2', 'Ｘ绝不会小于Ｂ', '0', '34');
+INSERT INTO `t_optionanswer` VALUES ('143', '1', 'Ｘ绝不会大于Ｂ', '1', '34');
+INSERT INTO `t_optionanswer` VALUES ('144', '3', '不好说', '0', '35');
+INSERT INTO `t_optionanswer` VALUES ('145', '2', '否', '0', '35');
+INSERT INTO `t_optionanswer` VALUES ('146', '1', '是', '1', '35');
+INSERT INTO `t_optionanswer` VALUES ('147', '3', '不好说', null, '36');
+INSERT INTO `t_optionanswer` VALUES ('148', '2', '否', '1', '36');
+INSERT INTO `t_optionanswer` VALUES ('149', '1', '是', '0', '36');
+INSERT INTO `t_optionanswer` VALUES ('150', '4', '有生就有死，不要太辛苦，活着就好。', '0', '37');
+INSERT INTO `t_optionanswer` VALUES ('151', '3', '无论做什么，人生必须得有所成。', '0', '37');
+INSERT INTO `t_optionanswer` VALUES ('152', '2', '深度比宽度在人生中更重要，目标要谨慎，一旦确定就坚持到底。', '0', '37');
+INSERT INTO `t_optionanswer` VALUES ('153', '1', '人生体验越多越好，所以想法极多。', '0', '37');
+INSERT INTO `t_optionanswer` VALUES ('154', '4', '要方便省心，害怕麻烦，所以宁愿走原路线', '0', '38');
+INSERT INTO `t_optionanswer` VALUES ('155', '3', '要挑战自我，喜欢冒险，所以宁愿走新路线', '0', '38');
+INSERT INTO `t_optionanswer` VALUES ('156', '2', '要安全稳妥，担心危险，所以宁愿走原路线', '0', '38');
+INSERT INTO `t_optionanswer` VALUES ('157', '1', '要好玩有趣，不愿重复，所以宁愿走新路线', '0', '38');
+INSERT INTO `t_optionanswer` VALUES ('158', '4', '总能让周围人很舒服', '0', '39');
+INSERT INTO `t_optionanswer` VALUES ('159', '3', '总能围绕最终目的', '0', '39');
+INSERT INTO `t_optionanswer` VALUES ('160', '2', '总是表述极其准确', '0', '39');
+INSERT INTO `t_optionanswer` VALUES ('161', '1', '总是给人感受到强烈印象', '0', '39');
+INSERT INTO `t_optionanswer` VALUES ('162', '4', '有创意的', '0', '40');
+INSERT INTO `t_optionanswer` VALUES ('163', '3', '谦虚的', '0', '40');
+INSERT INTO `t_optionanswer` VALUES ('164', '2', '有说服力的', '0', '40');
+INSERT INTO `t_optionanswer` VALUES ('165', '1', '仁慈心肠的', '0', '40');
+INSERT INTO `t_optionanswer` VALUES ('166', '4', '亲切的', '0', '41');
+INSERT INTO `t_optionanswer` VALUES ('167', '3', '固执的', '0', '41');
+INSERT INTO `t_optionanswer` VALUES ('168', '2', '诚实的', '0', '41');
+INSERT INTO `t_optionanswer` VALUES ('169', '1', '有魅力的', '0', '41');
+INSERT INTO `t_optionanswer` VALUES ('170', '2', '说去就去', '0', '42');
+INSERT INTO `t_optionanswer` VALUES ('171', '1', '计划你要做什么和在什么时候做', '0', '42');
+INSERT INTO `t_optionanswer` VALUES ('172', '2', '较为有条理的人', '0', '43');
+INSERT INTO `t_optionanswer` VALUES ('173', '1', '较为随兴所至的人', '0', '43');
+INSERT INTO `t_optionanswer` VALUES ('174', '2', '涉及理论的课程', '0', '44');
+INSERT INTO `t_optionanswer` VALUES ('175', '1', '以事实为主的课程', '0', '44');
+INSERT INTO `t_optionanswer` VALUES ('176', '4', '4', '0', '45');
+INSERT INTO `t_optionanswer` VALUES ('177', '3', '3', '0', '45');
+INSERT INTO `t_optionanswer` VALUES ('178', '2', '2', '2', '45');
+INSERT INTO `t_optionanswer` VALUES ('179', '1', '0', '0', '45');
+INSERT INTO `t_optionanswer` VALUES ('180', '4', '24', '0', '46');
+INSERT INTO `t_optionanswer` VALUES ('181', '3', '36', '0', '46');
+INSERT INTO `t_optionanswer` VALUES ('182', '2', '48', '0', '46');
+INSERT INTO `t_optionanswer` VALUES ('183', '1', '56', '2', '46');
+INSERT INTO `t_optionanswer` VALUES ('184', '4', '用购买力衡量收入水平', '4', '47');
+INSERT INTO `t_optionanswer` VALUES ('185', '3', '用收入来衡量购买力的水平', '0', '47');
+INSERT INTO `t_optionanswer` VALUES ('186', '2', '用商品的价值来考察劳动力', '0', '47');
+INSERT INTO `t_optionanswer` VALUES ('187', '1', '用劳动力来考察商品的价值  ', '0', '47');
+INSERT INTO `t_optionanswer` VALUES ('188', '4', '幌子  牺牲', '0', '48');
+INSERT INTO `t_optionanswer` VALUES ('189', '3', '名义  抑制', '0', '48');
+INSERT INTO `t_optionanswer` VALUES ('190', '2', '掩护  扭曲', '4', '48');
+INSERT INTO `t_optionanswer` VALUES ('191', '1', '手段  影响', '0', '48');
+INSERT INTO `t_optionanswer` VALUES ('192', '4', '王安石', '0', '49');
+INSERT INTO `t_optionanswer` VALUES ('193', '3', '苏洵', '0', '49');
+INSERT INTO `t_optionanswer` VALUES ('194', '2', '欧阳修', '0', '49');
+INSERT INTO `t_optionanswer` VALUES ('195', '1', '韩愈', '4', '49');
 
 -- ----------------------------
 -- Table structure for `t_test`
@@ -147,25 +230,26 @@ CREATE TABLE `t_test` (
   `testid` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(50) DEFAULT NULL,
   `memo` varchar(1000) DEFAULT NULL,
+  `ordernum` int(11) DEFAULT NULL,
   PRIMARY KEY (`testid`)
-) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_test
 -- ----------------------------
-INSERT INTO `t_test` VALUES ('1', '职业经理人压力应变能力测评', null);
-INSERT INTO `t_test` VALUES ('2', '心理测试', null);
-INSERT INTO `t_test` VALUES ('3', '素质测试', null);
-INSERT INTO `t_test` VALUES ('4', '判断能力测试题', null);
-INSERT INTO `t_test` VALUES ('5', '霍兰德职业倾向测验量表', null);
-INSERT INTO `t_test` VALUES ('6', '艾森克情绪稳定性测验', null);
-INSERT INTO `t_test` VALUES ('7', 'FPA性格色彩测试题及结果分析', null);
-INSERT INTO `t_test` VALUES ('8', 'DISC职业性格测评', null);
-INSERT INTO `t_test` VALUES ('9', 'MBTI职业性格测试题', null);
-INSERT INTO `t_test` VALUES ('10', '管理能力的测评', null);
-INSERT INTO `t_test` VALUES ('11', '基层岗位招聘笔试题', null);
-INSERT INTO `t_test` VALUES ('12', '应届生一般能力测验', null);
-INSERT INTO `t_test` VALUES ('13', '招聘笔试之综合能力测试题', null);
+INSERT INTO `t_test` VALUES ('1', '职业经理人压力应变能力测评', '测试目标：    1，了解你的压力承受能力；    2，了解对压力的应变能力；    3，给你面对外来压力时的应对方法：     4，如何建立你作为一个职业经理人和生活成功人士所需要的压力应对能力。 ', '1');
+INSERT INTO `t_test` VALUES ('2', '心理测试', '本心理测试是由中国现代心理研究所以著名的美国兰德公司（战略研究所）拟制的一套经典心理测试题为蓝本，根据中国人心理特点加以适当改造后形成的心理测试题，目前已被一些著名大公司，如联想、长虹、海尔等公司作为对员工心理测试的重要辅助试卷。 注意：每题只能选择一个答案，应为你第一印象的答案，把相应答案的分值加在一起即为你的得分。 ', '2');
+INSERT INTO `t_test` VALUES ('3', '素质测试', null, '3');
+INSERT INTO `t_test` VALUES ('4', '判断能力测试题', null, '4');
+INSERT INTO `t_test` VALUES ('5', '*霍兰德职业倾向测验量表', null, '5');
+INSERT INTO `t_test` VALUES ('6', '*艾森克情绪稳定性测验', null, '6');
+INSERT INTO `t_test` VALUES ('7', '*FPA性格色彩测试题及结果分析', null, '7');
+INSERT INTO `t_test` VALUES ('8', '*DISC职业性格测评', null, '8');
+INSERT INTO `t_test` VALUES ('9', '*MBTI职业性格测试题', null, '9');
+INSERT INTO `t_test` VALUES ('10', '管理能力的测评', null, '10');
+INSERT INTO `t_test` VALUES ('11', '基层岗位招聘笔试题', null, '11');
+INSERT INTO `t_test` VALUES ('12', '应届生一般能力测验', null, '12');
+INSERT INTO `t_test` VALUES ('13', '招聘笔试之综合能力测试题', null, '13');
 
 -- ----------------------------
 -- Table structure for `t_testresult`
@@ -179,7 +263,7 @@ CREATE TABLE `t_testresult` (
   `content` varchar(500) DEFAULT NULL,
   `memo` varchar(1000) DEFAULT NULL,
   PRIMARY KEY (`resultid`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_testresult
@@ -192,7 +276,16 @@ INSERT INTO `t_testresult` VALUES ('5', '2', '140', '179', '聪明，性格活�
 INSERT INTO `t_testresult` VALUES ('6', '2', '100', '139', '爱幻想，思维较感性，以是否与自己投缘为标准来选择朋友。性格显得较孤傲，有时较急噪，有时优柔寡断。事业心较强，喜欢有创造性的工作，不喜欢按常规办事。性格倔强，言语犀利，不善于妥协。崇尚浪漫的爱情，但想法往往不切合实际。金钱欲望一般。', null);
 INSERT INTO `t_testresult` VALUES ('7', '2', '70', '99', '好奇心强，喜欢冒险，人缘较好。事业心一般，对待工作，随遇而安，善于妥协。善于发现有趣的事情，但耐心较差，敢于冒险，但有时较胆小。渴望浪漫的爱情，但对婚姻的要求比较现实。不善理财。', null);
 INSERT INTO `t_testresult` VALUES ('8', '2', '40', '69', '性情温良，重友谊，性格塌实稳重，但有时也比较狡黠。事业心一般，对本职工作能认真对待，但对自己专业以外事物没有太大兴趣，喜欢有规律的工作和生活，不喜欢冒险，家庭观念强，比较善于理财。', null);
-INSERT INTO `t_testresult` VALUES ('9', '2', '0', '39', '散漫，爱玩，富于幻想。聪明机灵，待人热情，爱交朋友，但对朋友没有严格的选择标准。事业心较差，更善于享受生活，意志力和耐心都较差，我行我素。有较好的异性缘，但对爱情不够坚持认真，容易妥协。没有财产观念。', null);
+INSERT INTO `t_testresult` VALUES ('9', '2', '1', '39', '散漫，爱玩，富于幻想。聪明机灵，待人热情，爱交朋友，但对朋友没有严格的选择标准。事业心较差，更善于享受生活，意志力和耐心都较差，我行我素。有较好的异性缘，但对爱情不够坚持认真，容易妥协。没有财产观念。', null);
+INSERT INTO `t_testresult` VALUES ('10', '3', '0', '30', '典型的内向性格', null);
+INSERT INTO `t_testresult` VALUES ('11', '3', '31', '50', '稍内向性格', null);
+INSERT INTO `t_testresult` VALUES ('12', '3', '51', '70', '外、内混合型性格', null);
+INSERT INTO `t_testresult` VALUES ('13', '3', '71', '90', '稍外向性格', null);
+INSERT INTO `t_testresult` VALUES ('14', '3', '90', '999', '典型的外向性格', null);
+INSERT INTO `t_testresult` VALUES ('15', '4', '0', '6', '你的判断推理能力很差', null);
+INSERT INTO `t_testresult` VALUES ('16', '4', '6', '9', '你的判断推理能力一般', null);
+INSERT INTO `t_testresult` VALUES ('17', '4', '10', '13', '你的判断推理能力较强', null);
+INSERT INTO `t_testresult` VALUES ('18', '4', '14', '99', '判断推理迅速、准确，有很强的判断推理能力', null);
 
 -- ----------------------------
 -- Table structure for `t_topic`
@@ -204,7 +297,7 @@ CREATE TABLE `t_topic` (
   `content` varchar(500) DEFAULT NULL,
   `testid` int(11) DEFAULT NULL,
   PRIMARY KEY (`topicid`)
-) ENGINE=MyISAM AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=50 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_topic
@@ -234,6 +327,29 @@ INSERT INTO `t_topic` VALUES ('22', '7', '你的能力得到上司的重视，�
 INSERT INTO `t_topic` VALUES ('23', '8', '你的亲戚朋友中有人在意外事故中受了重伤，当你在电话里听到这个不幸消息时，你会：', '1');
 INSERT INTO `t_topic` VALUES ('24', '9', '每逢节假日，你和妻子（或丈夫）之间总有一场争论，到底是拜访自已的双亲还是她（或他）的父母，这时你会：', '1');
 INSERT INTO `t_topic` VALUES ('25', '10', '在你的身体感觉不适时，你会：', '1');
+INSERT INTO `t_topic` VALUES ('27', '1', '你是否觉得有许多同事都给你留下美好的印象，从而使你喜欢他（她）们？', '10');
+INSERT INTO `t_topic` VALUES ('28', '2', '你的同事是否容易受人的感染，接受你提出的意见和建议？', '10');
+INSERT INTO `t_topic` VALUES ('29', '3', '当你生病休息在家时没有同事来看你使你感到孤独吗？', '10');
+INSERT INTO `t_topic` VALUES ('30', '1', '当你站在大庭广众面前时，你会感到不好意思', '3');
+INSERT INTO `t_topic` VALUES ('31', '2', '你愿意一个人独处。', '3');
+INSERT INTO `t_topic` VALUES ('32', '3', '与陌生人打交道，你感到不容易。', '3');
+INSERT INTO `t_topic` VALUES ('33', '1', '如果Ｍ高于Ｎ和Ｏ，Ｎ又高于Ｏ而低于Ｐ，那么：（）', '4');
+INSERT INTO `t_topic` VALUES ('34', '2', '当Ｂ大于Ｃ时，Ｘ小于Ｃ；但是Ｃ绝对不会大于Ｂ，所以：（   ）', '4');
+INSERT INTO `t_topic` VALUES ('35', '1', '你认为你能像大多数人那样行事吗？', '6');
+INSERT INTO `t_topic` VALUES ('36', '2', '你是否觉得有点儿骄傲？', '6');
+INSERT INTO `t_topic` VALUES ('37', '1', '关于人生观，我的内心其实是：', '7');
+INSERT INTO `t_topic` VALUES ('38', '2', '如果爬山旅游，在下山回来的路线选择上，我更在乎：', '7');
+INSERT INTO `t_topic` VALUES ('39', '3', '通常在表达一件事情上，别人认为我：', '7');
+INSERT INTO `t_topic` VALUES ('40', '1', '以下最符合你的是：', '8');
+INSERT INTO `t_topic` VALUES ('41', '2', '以下最符合你的是：', '8');
+INSERT INTO `t_topic` VALUES ('42', '1', '当你要外出一整天，你会', '9');
+INSERT INTO `t_topic` VALUES ('43', '2', '你认为自己是一个', '9');
+INSERT INTO `t_topic` VALUES ('44', '3', '假如你是一位老师，你会选教', '9');
+INSERT INTO `t_topic` VALUES ('45', '1', '22  18  14  10  6     （   ）', '11');
+INSERT INTO `t_topic` VALUES ('46', '2', '20  12  32  12  44  12     （    ）', '11');
+INSERT INTO `t_topic` VALUES ('47', '1', '“你工作多久挣的钱，才能够买一个麦当劳‘巨无霸’？”要是猛然被这样提问，多数人可能会打个愣，因为不少人通常更习惯另一种算法，即我一个月的工资够买几个“巨无霸”？这两个问题看上去是一回事儿，但在统计学意义上却有着明显的差别。前者是以商品来考察劳动力的价值，后者则是（    ）', '13');
+INSERT INTO `t_topic` VALUES ('48', '2', '有了国内外巨大的价差，石油企业更愿意将成品油销往海外。同时，国际石油投机商也迅速抓住了这个机会，以来料加工为（ ），将低价成品油大量出口到境外大赚一笔，这样的情况又造成国内成品油供应紧张，（ ）了国内油品市场。', '13');
+INSERT INTO `t_topic` VALUES ('49', '3', '下面的作家是唐宋八大家中的四位，其中属于唐朝的一位是（    ）', '13');
 
 -- ----------------------------
 -- Table structure for `t_user`
@@ -244,7 +360,7 @@ CREATE TABLE `t_user` (
   `username` varchar(20) DEFAULT NULL,
   `pwd` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`userid`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_user
@@ -263,7 +379,7 @@ CREATE TABLE `t_useranswer` (
   `optansid` int(11) DEFAULT NULL,
   `utestid` int(11) DEFAULT NULL,
   PRIMARY KEY (`answid`)
-) ENGINE=MyISAM AUTO_INCREMENT=93 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=153 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_useranswer
@@ -357,6 +473,66 @@ INSERT INTO `t_useranswer` VALUES ('89', '15', '72', '9');
 INSERT INTO `t_useranswer` VALUES ('90', '16', '78', '9');
 INSERT INTO `t_useranswer` VALUES ('91', '17', '84', '9');
 INSERT INTO `t_useranswer` VALUES ('92', '18', '85', '9');
+INSERT INTO `t_useranswer` VALUES ('93', '4', '14', '10');
+INSERT INTO `t_useranswer` VALUES ('94', '5', '17', '10');
+INSERT INTO `t_useranswer` VALUES ('95', '6', '23', '10');
+INSERT INTO `t_useranswer` VALUES ('96', '7', '31', '10');
+INSERT INTO `t_useranswer` VALUES ('97', '8', '34', '10');
+INSERT INTO `t_useranswer` VALUES ('98', '9', '39', '10');
+INSERT INTO `t_useranswer` VALUES ('99', '10', '47', '10');
+INSERT INTO `t_useranswer` VALUES ('100', '11', '48', '10');
+INSERT INTO `t_useranswer` VALUES ('101', '12', '57', '10');
+INSERT INTO `t_useranswer` VALUES ('102', '13', '60', '10');
+INSERT INTO `t_useranswer` VALUES ('103', '14', '65', '10');
+INSERT INTO `t_useranswer` VALUES ('104', '15', '72', '10');
+INSERT INTO `t_useranswer` VALUES ('105', '16', '78', '10');
+INSERT INTO `t_useranswer` VALUES ('106', '17', '84', '10');
+INSERT INTO `t_useranswer` VALUES ('107', '18', '85', '10');
+INSERT INTO `t_useranswer` VALUES ('108', '1', '3', '11');
+INSERT INTO `t_useranswer` VALUES ('109', '2', '6', '11');
+INSERT INTO `t_useranswer` VALUES ('110', '3', '8', '11');
+INSERT INTO `t_useranswer` VALUES ('111', '19', '91', '11');
+INSERT INTO `t_useranswer` VALUES ('112', '20', '95', '11');
+INSERT INTO `t_useranswer` VALUES ('113', '21', '99', '11');
+INSERT INTO `t_useranswer` VALUES ('114', '22', '100', '11');
+INSERT INTO `t_useranswer` VALUES ('115', '23', '105', '11');
+INSERT INTO `t_useranswer` VALUES ('116', '24', '107', '11');
+INSERT INTO `t_useranswer` VALUES ('117', '25', '110', '11');
+INSERT INTO `t_useranswer` VALUES ('118', '1', '1', '12');
+INSERT INTO `t_useranswer` VALUES ('119', '2', '1', '12');
+INSERT INTO `t_useranswer` VALUES ('120', '3', '1', '12');
+INSERT INTO `t_useranswer` VALUES ('121', '19', '1', '12');
+INSERT INTO `t_useranswer` VALUES ('122', '20', '1', '12');
+INSERT INTO `t_useranswer` VALUES ('123', '21', '1', '12');
+INSERT INTO `t_useranswer` VALUES ('124', '22', '1', '12');
+INSERT INTO `t_useranswer` VALUES ('125', '23', '1', '12');
+INSERT INTO `t_useranswer` VALUES ('126', '24', '1', '12');
+INSERT INTO `t_useranswer` VALUES ('127', '25', '1', '12');
+INSERT INTO `t_useranswer` VALUES ('128', '1', '1', '13');
+INSERT INTO `t_useranswer` VALUES ('129', '2', '1', '13');
+INSERT INTO `t_useranswer` VALUES ('130', '3', '1', '13');
+INSERT INTO `t_useranswer` VALUES ('131', '19', '1', '13');
+INSERT INTO `t_useranswer` VALUES ('132', '20', '1', '13');
+INSERT INTO `t_useranswer` VALUES ('133', '21', '1', '13');
+INSERT INTO `t_useranswer` VALUES ('134', '22', '1', '13');
+INSERT INTO `t_useranswer` VALUES ('135', '23', '1', '13');
+INSERT INTO `t_useranswer` VALUES ('136', '24', '1', '13');
+INSERT INTO `t_useranswer` VALUES ('137', '25', '1', '13');
+INSERT INTO `t_useranswer` VALUES ('138', '4', '13', '14');
+INSERT INTO `t_useranswer` VALUES ('139', '5', '18', '14');
+INSERT INTO `t_useranswer` VALUES ('140', '6', '22', '14');
+INSERT INTO `t_useranswer` VALUES ('141', '7', '29', '14');
+INSERT INTO `t_useranswer` VALUES ('142', '8', '33', '14');
+INSERT INTO `t_useranswer` VALUES ('143', '9', '39', '14');
+INSERT INTO `t_useranswer` VALUES ('144', '10', '44', '14');
+INSERT INTO `t_useranswer` VALUES ('145', '11', '49', '14');
+INSERT INTO `t_useranswer` VALUES ('146', '12', '56', '14');
+INSERT INTO `t_useranswer` VALUES ('147', '13', '61', '14');
+INSERT INTO `t_useranswer` VALUES ('148', '14', '66', '14');
+INSERT INTO `t_useranswer` VALUES ('149', '15', '73', '14');
+INSERT INTO `t_useranswer` VALUES ('150', '16', '75', '14');
+INSERT INTO `t_useranswer` VALUES ('151', '17', '83', '14');
+INSERT INTO `t_useranswer` VALUES ('152', '18', '87', '14');
 
 -- ----------------------------
 -- Table structure for `t_usertest`
@@ -368,7 +544,7 @@ CREATE TABLE `t_usertest` (
   `testid` int(11) DEFAULT NULL,
   `creattime` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`utestid`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_usertest
@@ -382,6 +558,11 @@ INSERT INTO `t_usertest` VALUES ('6', '3', '2', '2012-12-11');
 INSERT INTO `t_usertest` VALUES ('7', '3', '2', '2012-12-11');
 INSERT INTO `t_usertest` VALUES ('8', '3', '2', '2012-12-11');
 INSERT INTO `t_usertest` VALUES ('9', '3', '2', '2012-12-11');
+INSERT INTO `t_usertest` VALUES ('10', '3', '2', '2012-12-11');
+INSERT INTO `t_usertest` VALUES ('11', '3', '1', '2012-12-11');
+INSERT INTO `t_usertest` VALUES ('12', '3', '1', '2012-12-12');
+INSERT INTO `t_usertest` VALUES ('13', '3', '1', '2012-12-12');
+INSERT INTO `t_usertest` VALUES ('14', '3', '2', '2012-12-12');
 
 -- ----------------------------
 -- View structure for `v_useranswer`
