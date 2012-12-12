@@ -24,7 +24,7 @@
                     </table>
             </td>
             <td style="white-space:nowrap;">
-                <input id="username" class="ggs-textbox" emptyText="请输入姓名" style="width:150px;" onenter="onKeyEnter"/>
+                <input id="title" class="ggs-textbox" emptyText="请输入关键字" style="width:150px;" onenter="onKeyEnter"/>
                 <a class="ggs-button" onclick="search()">查询</a>
             </td>
         </tr>
@@ -33,12 +33,17 @@
 <!--撑满页面-->
 <div class="ggs-fit" >
     <div id="datagrid1" class="ggs-datagrid" style="width:100%;height:100%;"
-         url="user!getUserList.action"  idField="userid"
+         url="test!getTestPageList.action"  idField="testid"
          sizeList="[10,20,30,50]" pageSize="20"
          allowCellEdit="true" allowCellSelect="true" >
         <div property="columns">
-            <div type="indexcolumn" width="10"></div>
-            <div field="username" >用户名
+            <div field="ordernum" width="10" align="center" headerAlign="center">序号
+                <input property="editor" class="ggs-spinner" style="width:100%;" vtype="required"/>
+            </div>
+            <div field="title"width="50">试卷名称
+                <input property="editor" class="ggs-textbox" style="width:100%;" vtype="required"/>
+            </div>
+            <div field="memo" >备注
                 <input property="editor" class="ggs-textbox" style="width:100%;" vtype="required"/>
             </div>
         </div>
@@ -49,10 +54,10 @@
     var grid = ggs.get("datagrid1");
     grid.load();
     //排序
-    grid.sortBy("userid", "desc");
+    grid.sortBy("ordernum", "asc");
     function search() {
-        var username = ggs.get("username").getValue();
-        grid.load({ username: username });
+        var title = ggs.get("title").getValue();
+        grid.load({ title: title });
     }
     function onKeyEnter(e) {
         search();
@@ -66,7 +71,7 @@
         var json = ggs.encode(data);
         grid.loading("保存中，请稍后......");
         $.ajax({
-            url: "user!saveUsers.action",
+            url: "test!saveTest.action",
             data: { data: json },
             type: "post",
             success: function (text) {

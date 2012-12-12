@@ -40,6 +40,9 @@ public class UserAction extends BaseAction implements ModelDriven<User>{
         this.userDao.saveUsers(users);
     }
 
+    /**
+     * 获取用户列表
+     * */
     public void getUserList(){
         PageBean pageBean = userDao.getUserList(this.getModel(),this.getPageParam());
         this.outJson(pageBean);

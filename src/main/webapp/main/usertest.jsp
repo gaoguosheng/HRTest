@@ -21,6 +21,7 @@
                         <table cellpadding="0" cellspacing="0">
                             <tr>
                                 <td>
+                                    <a class="ggs-button" iconCls="icon-tip" onclick="showDetail()" plain="true">查看明细</a>
                                 </td>
                             </tr>
                         </table>
@@ -46,7 +47,6 @@
                 <div field="title">测试试卷</div>
                 <div field="username">测试用户</div>
                 <div field="score"  allowSort="true">测试得分</div>
-                <div name="action" width="120" headerAlign="center" align="center" renderer="onActionRenderer" cellStyle="padding:0;">操作</div>
             </div>
         </div>
     </div>
@@ -58,7 +58,7 @@
         var grid = ggs.get("datagrid1");
         grid.load();
         //排序
-        grid.sortBy("creattime", "desc");
+        grid.sortBy("utestid", "desc");
         function search() {
             var username = ggs.get("username").getValue();
             grid.load({ username: username });
@@ -67,22 +67,21 @@
             search();
         }
 
-        function onActionRenderer(e) {
-            var grid = e.sender;
-            var record = e.record;
-            var utestid = record.utestid;
-            var title=record.title;
-            var testid=record.testid;
-            var s ="<a class='ggs-button' style='width:60px;' href='javascript:show("+utestid+",\""+title+"\","+testid+")'>查看</a>";
-            return s;
-        }
 
         function show(utestid,title,testid){
             mywindow=ggs.open({
                 url:  "test!getUserTestDetailList.action?utestid="+utestid+"&testid="+testid,
                 title: title, width: 800, height: 600
             });
+        }
 
+        function showDetail(){
+            var row = grid.getSelected();
+            if (row) {
+                show(row.utestid,row.title,row.testid);
+            } else {
+                ggs.alert("请选中一条记录");
+            }
         }
     </script>
 </body>

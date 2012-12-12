@@ -30,7 +30,7 @@ public class TestAction extends BaseAction implements ModelDriven<Test>{
     public void test(){
         List topicList = testDao.getTopics(model.getTestid());
         request.setAttribute("topicList",topicList);
-        this.forward("/main/test.jsp");
+        this.forward("/main/test_detail.jsp");
     }
 
     /**
@@ -140,4 +140,47 @@ public class TestAction extends BaseAction implements ModelDriven<Test>{
         PageBean pageBean = this.testDao.getOptionAnswerList(this.getIntParam("topicid"),this.getPageParam());
         this.outJson(pageBean);
     }
-}
+
+    /***
+     * 获取测试试卷列表（分页）
+     * */
+    public void getTestPageList(){
+        PageBean pageBean =  this.testDao.getTestList(this.getPageParam());
+        this.outJson(pageBean);
+    }
+
+    /**
+     * 保存试卷
+     * */
+    public void saveTest(){
+        Test[]tests = (Test[]) this.getJsonObject(Test[].class);
+        this.testDao.saveTest(tests);
+    }
+
+    /**
+     * 获取测试结果列表
+     * */
+    public void getTestResultList(){
+        PageBean pageBean = this.testDao.getTestResultList(this.getModel().getTestid(),this.getPageParam());
+        this.outJson(pageBean);
+    }
+
+    /**
+     * 保存测试结果
+     * */
+    public void saveTestResult(){
+        TestResult []results = (TestResult[]) this.getJsonObject(TestResult[].class);
+        for(TestResult result:results){
+            result.setTestid(this.getModel().getTestid());
+        }
+        this.testDao.saveTestResult(results);
+    }
+
+    /**
+     * 删除测试结果
+     * */
+    public void delTestResult(){
+        this.testDao.delTestResult(this.getIntParam("resultid"));
+    }
+
+ }

@@ -7,11 +7,7 @@
 --%>
 <%@ page language="java" pageEncoding="UTF-8" %>
 <%@ include file="../inc/top.jsp"%>
-<style type="text/css">
-    body{
-        margin:0;padding:0;border:0;width:100%;height:100%;overflow:visible;
-    }
-</style>
+
 <body >
 <div class="ggs-toolbar" style="padding:2px;border-bottom:0;">
     <table style="width:100%;">
@@ -81,7 +77,11 @@
             url:  "topic_edit.jsp?testid="+testid+"&topicid="+topicid,
             title: "题目管理",
             width: 800,
-            height: 600
+            height: 600,
+            ondestroy: function (action) {
+                gridReload();
+            }
+
         });
     }
 

@@ -1,14 +1,13 @@
 <%--
   Created by IntelliJ IDEA.
   User: ggs
-  Date: 12-12-7
-  Time: 下午2:24
+  Date: 12-12-11
+  Time: 上午11:32
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page language="java" pageEncoding="UTF-8" %>
 <%@include file="../inc/top.jsp"%>
-<%@taglib prefix="s" uri="/struts-tags" %>
 <body>
 <div class="ggs-splitter" style="width:100%;height:100%;" borderStyle="border:0;">
     <div size="250" maxSize="300" minSize="100" showCollapseButton="true" style="border-width:1px;">
@@ -50,7 +49,7 @@
             tab.showCloseButton = true;
 
             //这里拼接了url，实际项目，应该从后台直接获得完整的url地址
-            tab.url ="test!test.action?testid="+node.testid ;
+            tab.url ="testresult_list.jsp?testid="+node.testid ;
 
             tabs.addTab(tab);
         }
@@ -59,4 +58,5 @@
 
 
 </script>
+
 </body>

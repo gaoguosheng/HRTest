@@ -23,6 +23,15 @@ public class Test {
     private Integer testid;
     private String title;
     private String memo;
+    private Integer ordernum;
+
+    public Integer getOrdernum() {
+        return ordernum;
+    }
+
+    public void setOrdernum(Integer ordernum) {
+        this.ordernum = ordernum;
+    }
 
     public Integer getTestid() {
         return testid;

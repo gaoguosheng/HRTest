@@ -90,7 +90,7 @@ public class TestDaoImpl extends BaseDAO implements ITestDao {
      * 获取试卷列表
      * */
     public List getTestList(){
-        return HibernateUtil.query("from Test");
+        return HibernateUtil.query("from Test order by ordernum asc");
     }
 
     /**
@@ -147,5 +147,46 @@ public class TestDaoImpl extends BaseDAO implements ITestDao {
         sql.append("select * from t_optionanswer where topicid="+topicid);
         PageBean pageBean =this.getPageBean(sql.toString(),param);
         return pageBean;
+    }
+
+    /**
+     * 获取试卷列表
+     * */
+    public PageBean getTestList(PageParam param){
+        StringBuilder sql = new StringBuilder();
+        sql.append("select * from t_test");
+        PageBean pageBean = this.getPageBean(sql.toString(),param);
+        return pageBean;
+    }
+
+    /**
+     * 保存试卷
+     * */
+    public void saveTest(Test[]tests){
+        HibernateUtil.batchSaveOrUpdate(tests);
+    }
+
+    /**
+     * 获取测试结果列表
+     * */
+    public PageBean getTestResultList(int testid,PageParam param){
+        StringBuilder sql = new StringBuilder();
+        sql.append("select * from t_testresult where testid="+testid);
+        PageBean pageBean = this.getPageBean(sql.toString(),param);
+        return pageBean;
+    }
+
+    /**
+     * 保存测试结果
+     * */
+    public void saveTestResult(TestResult[]results){
+        HibernateUtil.batchSaveOrUpdate(results);
+    }
+
+    /**
+     * 删除测试结果
+     * */
+    public void delTestResult(int resultid){
+        HibernateUtil.executeUpdate("delete from TestResult where resultid=?",new Object[]{resultid});
     }
 }

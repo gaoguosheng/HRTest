@@ -26,7 +26,7 @@
                         <tr>
                             <td style="width:70px;">题目：</td>
                             <td style="width:150px;" colspan="3">
-                                <input name="content" class="ggs-textarea" required="true" style="width:500px;" emptyText="请输入内容"/>
+                                <input name="content" class="ggs-textarea" required="true" style="width:650px;height: 80px;" emptyText="请输入内容"/>
                             </td>
                         </tr>
                     </table>
@@ -41,19 +41,19 @@
                     <a class="ggs-button" iconCls="icon-add" onclick="addRow()" plain="true">增加</a>
                     <a class="ggs-button" iconCls="icon-remove" onclick="delRow()" plain="true">删除</a>
                 </div>
-                <div id="datagrid1" class="ggs-datagrid" style="width:100%;height:300px;"
+                <div id="datagrid1" class="ggs-datagrid" style="width:100%;height:250px;"
                      url="test!getOptionAnswerList.action?topicid=${param.topicid}"
                        idField="optansid"   sizeList="[5,10,20,30,50]" pageSize="10"
                      allowCellEdit="true" allowCellSelect="true" >
                     <div property="columns">
-                        <div field="ordernum"  width="20" align="center" headerAlign="center" allowSort="true">序号
-                            <input property="editor" class="ggs-spinner"  minValue="1" maxValue="20" style="width: 100%;"/>
+                        <div field="ordernum"  width="20" align="center" headerAlign="center" >序号
+                            <input property="editor" class="ggs-spinner"  minValue="1" maxValue="100" style="width: 100%;"/>
                         </div>
                         <div field="content" >答案内容
                             <input property="editor" class="ggs-textbox" style="width:100%;" vtype="required"/>
                         </div>
-                        <div field="score" width="20" align="center" headerAlign="center" allowSort="true">分值
-                            <input property="editor" class="ggs-spinner"  minValue="1" maxValue="100" style="width: 100%;"/>
+                        <div field="score" width="20" align="center" headerAlign="center" >分值
+                            <input property="editor" class="ggs-spinner"  minValue="0" maxValue="100" style="width: 100%;"/>
                         </div>
                     </div>
                     </div>

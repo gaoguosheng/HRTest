@@ -17,14 +17,15 @@
                         <tr>
                             <td>
                                 <a class="ggs-button" iconCls="icon-add" onclick="addRow()" plain="true">增加</a>
-                                <span class="separator"></span>
                                 <a class="ggs-button" iconCls="icon-save" onclick="saveData()" plain="true">保存</a>
+                                <span class="separator"></span>
+                                <a class="ggs-button" iconCls="icon-remove" onclick="delRow()" plain="true">删除</a>
                             </td>
                         </tr>
                     </table>
             </td>
             <td style="white-space:nowrap;">
-                <input id="username" class="ggs-textbox" emptyText="请输入姓名" style="width:150px;" onenter="onKeyEnter"/>
+                <input id="title" class="ggs-textbox" emptyText="请输入关键字" style="width:150px;" onenter="onKeyEnter"/>
                 <a class="ggs-button" onclick="search()">查询</a>
             </td>
         </tr>
@@ -33,12 +34,20 @@
 <!--撑满页面-->
 <div class="ggs-fit" >
     <div id="datagrid1" class="ggs-datagrid" style="width:100%;height:100%;"
-         url="user!getUserList.action"  idField="userid"
+         url="test!getTestResultList.action?testid=${param.testid}"  idField="resultid"
          sizeList="[10,20,30,50]" pageSize="20"
          allowCellEdit="true" allowCellSelect="true" >
         <div property="columns">
-            <div type="indexcolumn" width="10"></div>
-            <div field="username" >用户名
+            <div field="stscore" width="20" align="center" headerAlign="center">起始分数
+                <input property="editor" class="ggs-spinner" style="width:100%;" vtype="required" minValue="0" maxValue="999"/>
+            </div>
+            <div field="edscore" width="20" align="center" headerAlign="center">结束分数
+                <input property="editor" class="ggs-spinner" style="width:100%;" vtype="required" minValue="0" maxValue="999"/>
+            </div>
+            <div field="content"width="50">测试结果
+                <input property="editor" class="ggs-textbox" style="width:100%;" vtype="required"/>
+            </div>
+            <div field="memo" >备注
                 <input property="editor" class="ggs-textbox" style="width:100%;" vtype="required"/>
             </div>
         </div>
@@ -49,10 +58,10 @@
     var grid = ggs.get("datagrid1");
     grid.load();
     //排序
-    grid.sortBy("userid", "desc");
+    grid.sortBy("stscore", "asc");
     function search() {
-        var username = ggs.get("username").getValue();
-        grid.load({ username: username });
+        var title = ggs.get("title").getValue();
+        grid.load({ title: title });
     }
     function onKeyEnter(e) {
         search();
@@ -66,8 +75,8 @@
         var json = ggs.encode(data);
         grid.loading("保存中，请稍后......");
         $.ajax({
-            url: "user!saveUsers.action",
-            data: { data: json },
+            url: "test!saveTestResult.action",
+            data: { data: json,testid:${param.testid} },
             type: "post",
             success: function (text) {
                 grid.reload();
@@ -76,6 +85,23 @@
     }
     function gridReload(){
         grid.reload();
+    }
+
+    function delRow(){
+        var row = grid.getSelected();
+        if (row) {
+            ggs.confirm("确定删除记录？", "确定？",
+                    function (action) {
+                        if (action == "ok") {
+                            $GGS.ajax("test!delTestResult.action",{resultid:row.resultid});
+                            grid.removeRow (row,true);
+                        }
+                    }
+            );
+
+        } else {
+            ggs.alert("请选中一条记录");
+        }
     }
 </script>
 </body>
