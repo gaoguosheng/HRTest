@@ -25,7 +25,7 @@
         </div>
         <div style="position:absolute;top:18px;right:10px;">
             <span id="remainCountSpan"></span>&nbsp;&nbsp;&nbsp;&nbsp;
-            <a class="ggs-button ggs-button-iconTop" iconCls="icon-user" plain="true">${sessionScope.admin.username}</a>
+            <a class="ggs-button ggs-button-iconTop" iconCls="icon-user" plain="true">${sessionScope.admin.realname}</a>
             <a class="ggs-button ggs-button-iconTop" iconCls="icon-edit" onclick="showPwdWindow();"  plain="true" >设置密码</a>
             <a class="ggs-button ggs-button-iconTop" iconCls="icon-close"  plain="true" onclick="f_exit();">退出平台</a>
         </div>

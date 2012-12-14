@@ -45,7 +45,7 @@
                 <div type="indexcolumn"></div>
                 <div field="creattime" allowSort="true" align="center"  headerAlign="center">测试日期</div>
                 <div field="title">测试试卷</div>
-                <div field="username">测试用户</div>
+                <div field="realname">测试人员</div>
                 <div field="score"  allowSort="true">测试得分</div>
             </div>
         </div>

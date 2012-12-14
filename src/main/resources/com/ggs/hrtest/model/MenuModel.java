@@ -15,6 +15,9 @@ public class MenuModel extends BaseModel{
     private Integer upid;
     private String url;
 
+
+
+
     public Integer getMenuid() {
         return menuid;
     }

@@ -17,6 +17,4 @@ public interface IUserDao {
     public PageModel getUserList(UserModel userModel);
 
     public void resetPwd(int userid);
-
-    public Object getAUser(int userid);
 }

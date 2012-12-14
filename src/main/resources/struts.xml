@@ -36,5 +36,6 @@
 		<action name="user" class="com.ggs.hrtest.action.UserAction"></action>
         <action name="test" class="com.ggs.hrtest.action.TestAction"></action>
         <action name="menu" class="com.ggs.hrtest.action.MenuAction"></action>
+        <action name="role" class="com.ggs.hrtest.action.RoleAction"></action>
 	</package>
 </struts>    

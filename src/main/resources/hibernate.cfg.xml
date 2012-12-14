@@ -41,5 +41,6 @@
         <mapping class="com.ggs.hrtest.po.UserTest" />
         <mapping class="com.ggs.hrtest.po.TestResult" />
         <mapping class="com.ggs.hrtest.po.Menu" />
+        <mapping class="com.ggs.hrtest.po.Role" />
     </session-factory>
 </hibernate-configuration>

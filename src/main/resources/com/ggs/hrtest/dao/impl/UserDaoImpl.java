@@ -52,8 +52,5 @@ public class UserDaoImpl extends BaseDAO implements IUserDao {
         hibernateUtil.update(user);
     }
 
-    public User getAUser(int userid){
-        return (User)hibernateUtil.get(User.class,userid);
-    }
 
 }
