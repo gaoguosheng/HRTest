@@ -26,5 +26,6 @@
         body,label,p,div,table,span{font-size: 10pt;}
     </style>
 	<script type="text/javascript" src="<%=path%>/scripts/ggs.js"></script>
+    <script type="text/javascript" src="<%=path%>/scripts/md5.js"></script>
 </head>
 

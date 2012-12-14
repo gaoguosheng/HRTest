@@ -14,9 +14,9 @@ public interface IUserDao {
 
     public void saveUser(User user);
 
-    public void saveUsers(User[]users);
-
     public PageModel getUserList(UserModel userModel);
 
     public void resetPwd(int userid);
+
+    public Object getAUser(int userid);
 }

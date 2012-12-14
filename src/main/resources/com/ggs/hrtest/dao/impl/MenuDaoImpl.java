@@ -17,6 +17,6 @@ import java.util.List;
 public class MenuDaoImpl extends BaseDAO implements IMenuDao {
     @Override
     public List list(MenuModel menuModel) {
-        return HibernateUtil.sqlQuery("select * from t_menu where menuid in (select menuid from t_rolemenu where roleid=?) order by ordernum",new Object[]{menuModel.getAdmin().getRoleid()});
+        return hibernateUtil.sqlQuery("select * from t_menu where menuid in (select menuid from t_rolemenu where roleid=?) order by ordernum",new Object[]{menuModel.getAdmin().getRoleid()});
     }
 }

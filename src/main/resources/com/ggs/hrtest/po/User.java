@@ -24,8 +24,53 @@ public class User implements Serializable {
     @GeneratedValue(generator = "generator")
     private Integer userid;
     private String username;
-    private String pwd="e10adc3949ba59abbe56e057f20f883e";
+    private String pwd;
     private Integer roleid;
+    private String  realname;
+    private String tel;
+    private String qq;
+    private String email;
+    private String memo;
+
+    public String getRealname() {
+        return realname;
+    }
+
+    public void setRealname(String realname) {
+        this.realname = realname;
+    }
+
+    public String getTel() {
+        return tel;
+    }
+
+    public void setTel(String tel) {
+        this.tel = tel;
+    }
+
+    public String getQq() {
+        return qq;
+    }
+
+    public void setQq(String qq) {
+        this.qq = qq;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getMemo() {
+        return memo;
+    }
+
+    public void setMemo(String memo) {
+        this.memo = memo;
+    }
 
     public Integer getRoleid() {
         return roleid;

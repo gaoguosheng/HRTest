@@ -15,6 +15,8 @@ import java.util.List;
  * To change this template use File | Settings | File Templates.
  */
 public class BaseDAO {
+    protected HibernateUtil hibernateUtil = new HibernateUtil();
+
     protected PageModel getPageBean(String sql,BaseModel baseModel){
         PageModel pageModel = new PageModel();
         StringBuilder orderSql = new StringBuilder();
@@ -25,8 +27,8 @@ public class BaseDAO {
             orderSql.append(baseModel.getSortOrder());
         }
         String pageSql=sql+orderSql;
-        int total = HibernateUtil.countForInt(pageSql);
-        List data = HibernateUtil.sqlQuery(pageSql, baseModel.getPageIndex(), baseModel.getPageSize());
+        int total = hibernateUtil.countForInt(pageSql);
+        List data = hibernateUtil.sqlQuery(pageSql, baseModel.getPageIndex(), baseModel.getPageSize());
         pageModel.setTotal(total);
         pageModel.setData(data);
         return pageModel;

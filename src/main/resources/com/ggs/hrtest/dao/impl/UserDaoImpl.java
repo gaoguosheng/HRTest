@@ -2,6 +2,7 @@ package com.ggs.hrtest.dao.impl;
 
 import java.util.List;
 
+import com.ggs.comm.Const;
 import com.ggs.hrtest.model.PageModel;
 import com.ggs.hrtest.model.BaseModel;
 import com.ggs.hrtest.model.UserModel;
@@ -16,7 +17,7 @@ public class UserDaoImpl extends BaseDAO implements IUserDao {
 	@Override
 	public User checkUserExist(User user) {
         User result  = null;
-        List<User> list = HibernateUtil.query("from User where username=? and pwd=?",new Object[]{user.getUsername(),user.getPwd()});
+        List<User> list = hibernateUtil.query("from User where username=? and pwd=?",new Object[]{user.getUsername(),user.getPwd()});
         if(list.size()>0){
             result=list.get(0);
         }
@@ -24,18 +25,18 @@ public class UserDaoImpl extends BaseDAO implements IUserDao {
 	}
 
     public void updatePwd(User user){
-        User u = (User)HibernateUtil.get(User.class,user.getUserid());
+        User u = (User)hibernateUtil.get(User.class,user.getUserid());
         u.setPwd(user.getPwd());
-        HibernateUtil.update(u);
+        hibernateUtil.update(u);
     }
 
     public void saveUser(User user){
-        HibernateUtil.save(user);
+        hibernateUtil.saveOrUpdate(user);
     }
 
     public PageModel getUserList(UserModel userModel){
         StringBuilder sql = new StringBuilder();
-        sql.append(" select * from t_user where 1=1 and username<>'admin'");
+        sql.append(" select * from v_user where 1=1 and username<>'"+ Const.ADMIN_USER+"'");
         if(NullUtil.isNotNull(userModel.getUsername())){
             sql.append(" and username like '%"+userModel.getUsername()+"%'");
         }
@@ -43,14 +44,16 @@ public class UserDaoImpl extends BaseDAO implements IUserDao {
         return pageModel;
     }
 
-    public void saveUsers(User[]users){
-        HibernateUtil.batchSaveOrUpdate(users);
-    }
+
 
     public void resetPwd(int userid){
-        User user   = (User) HibernateUtil.get(User.class, userid);
+        User user   = (User) hibernateUtil.get(User.class, userid);
         user.setPwd("e10adc3949ba59abbe56e057f20f883e");
-        HibernateUtil.update(user);
+        hibernateUtil.update(user);
+    }
+
+    public User getAUser(int userid){
+        return (User)hibernateUtil.get(User.class,userid);
     }
 
 }

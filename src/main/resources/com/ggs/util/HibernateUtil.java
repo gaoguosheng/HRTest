@@ -14,22 +14,20 @@ import java.util.Map;
 public class HibernateUtil {
 
 
-    private static String CONFIG_FILE_LOCATION = "/hibernate.cfg.xml";
-    private  static Configuration configuration = new Configuration();
-    private static org.hibernate.SessionFactory sessionFactory;
-    private static String configFile = CONFIG_FILE_LOCATION;
+    private String CONFIG_FILE_LOCATION = "/hibernate.cfg.xml";
+    private  Configuration configuration = new Configuration();
+    private org.hibernate.SessionFactory sessionFactory;
+    private String configFile = CONFIG_FILE_LOCATION;
 
-	static {
-    	try {
-			configuration.configure(configFile);
-			sessionFactory = configuration.buildSessionFactory();
-		} catch (Exception e) {
-			System.err
-					.println("%%%% Error Creating SessionFactory %%%%");
-			e.printStackTrace();
-		}
-    }
-    private HibernateUtil() {
+    public HibernateUtil() {
+        try {
+            configuration.configure(configFile);
+            sessionFactory = configuration.buildSessionFactory();
+        } catch (Exception e) {
+            System.err
+                    .println("%%%% Error Creating SessionFactory %%%%");
+            e.printStackTrace();
+        }
     }
 	
 	/**
@@ -39,16 +37,15 @@ public class HibernateUtil {
      *  @return Session
      *  @throws org.hibernate.HibernateException
      */
-    public static Session getSession() throws HibernateException {
+    public Session getSession() throws HibernateException {
         Session session = sessionFactory.openSession();
         return session;
     }
-
 	/**
      *  Rebuild hibernate session factory
      *
      */
-	public static void rebuildSessionFactory() {
+	public void rebuildSessionFactory() {
 		try {
 			configuration.configure(configFile);
 			sessionFactory = configuration.buildSessionFactory();
@@ -58,36 +55,15 @@ public class HibernateUtil {
 			e.printStackTrace();
 		}
 	}
-
-
-
 	/**
      *  return session factory
      *
      */
-	public static org.hibernate.SessionFactory getSessionFactory() {
+	public org.hibernate.SessionFactory getSessionFactory() {
 		return sessionFactory;
 	}
 
-	/**
-     *  return session factory
-     *
-     *	session factory will be rebuilded in the next call
-     */
-	public static void setConfigFile(String configFile) {
-		HibernateUtil.configFile = configFile;
-		sessionFactory = null;
-	}
-
-	/**
-     *  return hibernate configuration
-     *
-     */
-	public static Configuration getConfiguration() {
-		return configuration;
-	}
-
-    public static void save(Object o){
+    public void save(Object o){
         Session session = getSession();
         Transaction tx = session.beginTransaction();
         try{
@@ -101,7 +77,7 @@ public class HibernateUtil {
         }
     }
 
-    public static void update(Object o){
+    public void update(Object o){
         Session session = getSession();
         Transaction tx = session.beginTransaction();
         try{
@@ -115,7 +91,7 @@ public class HibernateUtil {
         }
     }
 
-    public static void saveOrUpdate(Object o){
+    public void saveOrUpdate(Object o){
         Session session = getSession();
         Transaction tx = session.beginTransaction();
         try{
@@ -129,7 +105,7 @@ public class HibernateUtil {
         }
     }
 
-    public static void delete(Object o){
+    public void delete(Object o){
         Session session = getSession();
         Transaction tx = session.beginTransaction();
         try{
@@ -143,7 +119,7 @@ public class HibernateUtil {
         }
     }
 
-    public static void delete(Class c,Serializable id){
+    public void delete(Class c,Serializable id){
         Session session = getSession();
         Transaction tx = session.beginTransaction();
         try{
@@ -157,14 +133,14 @@ public class HibernateUtil {
         }
     }
 
-    public static Object get(Class c, Serializable id){
+    public Object get(Class c, Serializable id){
         Session session = getSession();
         Object o  = session.get(c,id);
         session.close();
         return o;
     }
 
-    public static List query(String hql){
+    public List query(String hql){
         Session session = getSession();
         Query query = session.createQuery(hql);
         List list = query.list();
@@ -172,7 +148,7 @@ public class HibernateUtil {
         return list;
     }
 
-    public static List query(String hql,Object[]o ){
+    public List query(String hql,Object[]o ){
         List list = null;
         Session session = getSession();
         Query query = session.createQuery(hql);
@@ -189,7 +165,7 @@ public class HibernateUtil {
         return list;
     }
 
-    public static List<Map<String,Object>> sqlQuery(String sql){
+    public List<Map<String,Object>> sqlQuery(String sql){
         Session session = getSession();
         SQLQuery query = session.createSQLQuery(sql);
         query.setResultTransformer(Transformers.ALIAS_TO_ENTITY_MAP);
@@ -198,7 +174,7 @@ public class HibernateUtil {
         return list;
     }
 
-    public static List<Map<String,Object>> sqlQuery(String sql,int firstFesult,int maxResults){
+    public  List<Map<String,Object>> sqlQuery(String sql,int firstFesult,int maxResults){
         Session session = getSession();
         SQLQuery query = session.createSQLQuery(sql);
         query.setResultTransformer(Transformers.ALIAS_TO_ENTITY_MAP);
@@ -210,7 +186,7 @@ public class HibernateUtil {
     }
 
 
-    public static List<Map<String,Object>> sqlQuery(String sql,Object[]o){
+    public List<Map<String,Object>> sqlQuery(String sql,Object[]o){
         Session session = getSession();
         SQLQuery query = session.createSQLQuery(sql);
         query.setResultTransformer(Transformers.ALIAS_TO_ENTITY_MAP);
@@ -222,7 +198,7 @@ public class HibernateUtil {
         return list;
     }
 
-    public static void batchSave(Object[]o){
+    public void batchSave(Object[]o){
         Session session = getSession();
         Transaction tx = session.beginTransaction();
         try{
@@ -239,7 +215,7 @@ public class HibernateUtil {
     }
 
 
-    public static void batchSaveOrUpdate(Object[]o){
+    public  void batchSaveOrUpdate(Object[]o){
         Session session = getSession();
         Transaction tx = session.beginTransaction();
         try{
@@ -256,7 +232,7 @@ public class HibernateUtil {
     }
 
 
-    public static int countForInt(String sql){
+    public  int countForInt(String sql){
         int result=0;
         Session session = getSession();
         SQLQuery query = session.createSQLQuery(sql);
@@ -266,7 +242,7 @@ public class HibernateUtil {
         return result;
     }
 
-    public static Object queryOneObject(String hql,Object[]o ){
+    public  Object queryOneObject(String hql,Object[]o ){
         Object result = null;
         Session session = getSession();
         Query query = session.createQuery(hql);
@@ -287,7 +263,7 @@ public class HibernateUtil {
         return result;
     }
 
-    public static void executeUpdate(String hql){
+    public  void executeUpdate(String hql){
         Session session = getSession();
         Transaction tx = session.beginTransaction();
         try{
@@ -302,7 +278,7 @@ public class HibernateUtil {
         }
     }
 
-    public static void executeUpdate(String hql,Object[]o){
+    public  void executeUpdate(String hql,Object[]o){
         Session session = getSession();
         Transaction tx = session.beginTransaction();
         try{

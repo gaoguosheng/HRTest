@@ -53,21 +53,27 @@
 <div style="line-height:28px;text-align:center;cursor:default"><%=Const.COPY%></div>
 
 
-<div id="pwdWindow" class="ggs-window" title="设置密码" style="width:350px;height:165px;"
+<div id="pwdWindow" class="ggs-window" title="设置密码" style="width:380px;height:200px;"
      showModal="true" showCloseButton="false"
         >
     <div id="pwdForm" style="padding:15px;padding-top:10px;">
         <table >
             <tr>
-                <td style="width:80px;"><label for="username$text">新密码：</label></td>
+                <td style="width:80px;">旧密码：</td>
                 <td>
-                    <input id="pwd" name="pwd" class="ggs-password" required="true" requiredErrorText="新密码不能为空" style="width:150px;"/>
+                    <input id="oldpwd" name="oldpwd" class="ggs-password" required="true"  style="width:150px;"/>
                 </td>
             </tr>
             <tr>
-                <td style="width:80px;"><label for="pwd2$text">密码确认：</label></td>
+                <td style="width:80px;">新密码：</td>
                 <td>
-                    <input id="pwd2" name="pwd2" class="ggs-password" requiredErrorText="密码确认不能为空" required="true" style="width:150px;" onenter="onpwdClick" />
+                    <input id="pwd" name="pwd" class="ggs-password" required="true"  style="width:150px;"/>
+                </td>
+            </tr>
+            <tr>
+                <td style="width:80px;">密码确认：</td>
+                <td>
+                    <input id="pwd2" name="pwd2" class="ggs-password"  required="true" style="width:150px;" onenter="onpwdClick" />
                 </td>
             </tr>
             <tr>
@@ -81,6 +87,7 @@
         </table>
     </div>
 </div>
+
 
 <script type="text/javascript">
     ggs.parse();
@@ -151,6 +158,14 @@
         if (form.isValid() == false) return;
         //提交数据
         var data = form.getData();
+
+        //验证旧密码
+        if(hex_md5(data.oldpwd)!="${sessionScope.admin.pwd}"){
+            ggs.alert("旧密码不正确!");
+            return false;
+        }
+
+
         //验证密码
         if(data.pwd!=data.pwd2){
             ggs.alert("您输入两次密码不一样！");
@@ -160,6 +175,8 @@
         var json = ggs.encode(data);
         var t = $GGS.getJSON("user!updatePwd.action",{data:json});
         ggs.alert("密码更新成功！");
+        form.setData({});
+        closePwdWindow();
     }
 
     function f_startTest(){

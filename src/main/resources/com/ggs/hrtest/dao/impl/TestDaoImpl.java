@@ -1,10 +1,11 @@
 package com.ggs.hrtest.dao.impl;
 
+import com.ggs.comm.Const;
 import com.ggs.hrtest.model.*;
 import com.ggs.hrtest.dao.ITestDao;
 import com.ggs.hrtest.po.*;
 import com.ggs.util.DateUtil;
-import com.ggs.util.HibernateUtil;
+
 
 import java.util.List;
 
@@ -22,7 +23,7 @@ public class TestDaoImpl extends BaseDAO implements ITestDao {
      * @param testid 试卷id
      * */
     public List getTopics(Integer testid){
-        return HibernateUtil.query("from Topic where testid=?",new Object[]{testid});
+        return hibernateUtil.query("from Topic where testid=?",new Object[]{testid});
     }
 
     /**
@@ -33,7 +34,7 @@ public class TestDaoImpl extends BaseDAO implements ITestDao {
         StringBuilder hql = new StringBuilder();
         hql.append(" select a from OptionAnswer a where a.topicid in ");
         hql.append("(select b.topicid from Topic b where b.testid=?)");
-        return HibernateUtil.query(hql.toString(), new Object[]{testid});
+        return hibernateUtil.query(hql.toString(), new Object[]{testid});
     }
 
     /**
@@ -43,7 +44,7 @@ public class TestDaoImpl extends BaseDAO implements ITestDao {
     public List getOptionAnswersByTopic(Integer topicid){
         StringBuilder hql = new StringBuilder();
         hql.append(" select a from OptionAnswer a where a.topicid =?)");
-        return HibernateUtil.query(hql.toString(),new Object[]{topicid});
+        return hibernateUtil.query(hql.toString(),new Object[]{topicid});
     }
 
     /***
@@ -51,11 +52,11 @@ public class TestDaoImpl extends BaseDAO implements ITestDao {
      * */
     public void saveAnswers(UserTest userTest,UserAnswer[] answers){
         userTest.setCreattime(DateUtil.getDate());
-        HibernateUtil.save(userTest);
+        hibernateUtil.save(userTest);
         for(UserAnswer answer:answers){
             answer.setUtestid(userTest.getUtestid());
         }
-        HibernateUtil.batchSave(answers);
+        hibernateUtil.batchSave(answers);
     }
 
     /**
@@ -64,6 +65,9 @@ public class TestDaoImpl extends BaseDAO implements ITestDao {
     public PageModel getUserTestList(TestModel testModel){
         StringBuilder sql = new StringBuilder();
         sql.append(" select * from v_usertest where 1=1");
+        if(!testModel.getAdmin().getUsername().equals(Const.ADMIN_USER)){
+            sql.append(" and userid="+testModel.getAdmin().getUserid());
+        }
         PageModel pageModel = this.getPageBean(sql.toString(),testModel);
         return pageModel;
     }
@@ -72,14 +76,14 @@ public class TestDaoImpl extends BaseDAO implements ITestDao {
      * 获取测试结果明细列表
      * */
     public List getUserTestDetailList(int utestid){
-        return HibernateUtil.sqlQuery("select * from v_usertestdetail where utestid=? order by topicnum",new Object[]{utestid});
+        return hibernateUtil.sqlQuery("select * from v_usertestdetail where utestid=? order by topicnum",new Object[]{utestid});
     }
 
     /**
      * 获取测试解析
      * */
     public TestResult getTestResult(TestModel testModel){
-        return (TestResult)HibernateUtil.queryOneObject("from TestResult where testid=? and stscore<=? and edscore>=?",new Object[]{
+        return (TestResult)hibernateUtil.queryOneObject("from TestResult where testid=? and stscore<=? and edscore>=?",new Object[]{
                 testModel.getTestid(),
                 testModel.getScore(),
                 testModel.getScore()
@@ -90,7 +94,7 @@ public class TestDaoImpl extends BaseDAO implements ITestDao {
      * 获取试卷列表
      * */
     public List getTestList(){
-        return HibernateUtil.query("from Test order by ordernum asc");
+        return hibernateUtil.query("from Test order by ordernum asc");
     }
 
     /**
@@ -106,7 +110,7 @@ public class TestDaoImpl extends BaseDAO implements ITestDao {
      * 获取题目信息
      * */
     public Topic getATopic(int topicid){
-        return (Topic)HibernateUtil.get(Topic.class,topicid);
+        return (Topic)hibernateUtil.get(Topic.class,topicid);
     }
 
     /**
@@ -115,28 +119,28 @@ public class TestDaoImpl extends BaseDAO implements ITestDao {
     public void saveTopic(Topic topic,OptionAnswer[]answers){
         if(topic.getTopicid()==-1)
             topic.setTopicid(null);
-        HibernateUtil.saveOrUpdate(topic);
+        hibernateUtil.saveOrUpdate(topic);
         for(OptionAnswer answer:answers){
             answer.setTopicid(topic.getTopicid());
         }
-        HibernateUtil.batchSaveOrUpdate(answers);
+        hibernateUtil.batchSaveOrUpdate(answers);
     }
 
     /**
      * 删除题目
      * */
     public void delTopic(int topicid){
-        HibernateUtil.executeUpdate("delete from UserAnswer where topicid=?",new Object[]{topicid});
-        HibernateUtil.executeUpdate("delete from OptionAnswer where topicid=?",new Object[]{topicid});
-        HibernateUtil.executeUpdate("delete from Topic where topicid=?",new Object[]{topicid});
+        hibernateUtil.executeUpdate("delete from UserAnswer where topicid=?",new Object[]{topicid});
+        hibernateUtil.executeUpdate("delete from OptionAnswer where topicid=?",new Object[]{topicid});
+        hibernateUtil.executeUpdate("delete from Topic where topicid=?",new Object[]{topicid});
     }
 
     /**
      * 删除答案选项
      * */
     public void delOptionAnswer(int optansid){
-        HibernateUtil.executeUpdate("delete from UserAnswer where optansid=?",new Object[]{optansid});
-        HibernateUtil.executeUpdate("delete from OptionAnswer where optansid=?",new Object[]{optansid});
+        hibernateUtil.executeUpdate("delete from UserAnswer where optansid=?",new Object[]{optansid});
+        hibernateUtil.executeUpdate("delete from OptionAnswer where optansid=?",new Object[]{optansid});
     }
 
     /**
@@ -163,7 +167,7 @@ public class TestDaoImpl extends BaseDAO implements ITestDao {
      * 保存试卷
      * */
     public void saveTest(Test[]tests){
-        HibernateUtil.batchSaveOrUpdate(tests);
+        hibernateUtil.batchSaveOrUpdate(tests);
     }
 
     /**
@@ -180,13 +184,13 @@ public class TestDaoImpl extends BaseDAO implements ITestDao {
      * 保存测试结果
      * */
     public void saveTestResult(TestResult[]results){
-        HibernateUtil.batchSaveOrUpdate(results);
+        hibernateUtil.batchSaveOrUpdate(results);
     }
 
     /**
      * 删除测试结果
      * */
     public void delTestResult(int resultid){
-        HibernateUtil.executeUpdate("delete from TestResult where resultid=?",new Object[]{resultid});
+        hibernateUtil.executeUpdate("delete from TestResult where resultid=?",new Object[]{resultid});
     }
 }

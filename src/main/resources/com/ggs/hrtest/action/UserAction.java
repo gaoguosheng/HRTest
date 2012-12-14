@@ -36,9 +36,13 @@ public class UserAction extends BaseAction {
     /**
      * 添加用户
      * */
-    public void saveUsers(){
-        User[]users = (User[]) this.getJsonObject(User[].class);
-        this.userDao.saveUsers(users);
+    public void saveUser(){
+        User user = (User) this.getJsonObject(User.class);
+        if(user.getUserid()==-1){
+            user.setUserid(null);
+            user.setPwd(MD5.getMD5("123456"));
+        }
+        this.userDao.saveUser(user);
     }
 
     /**
