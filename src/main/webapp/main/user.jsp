@@ -17,8 +17,9 @@
                         <tr>
                             <td>
                                 <a class="ggs-button" iconCls="icon-add" onclick="addRow()" plain="true">增加</a>
-                                <span class="separator"></span>
                                 <a class="ggs-button" iconCls="icon-save" onclick="saveData()" plain="true">保存</a>
+                                <span class="separator"></span>
+                                <a class="ggs-button" iconCls="icon-lock" onclick="f_resetPwd()" plain="true">重置密码</a>
                             </td>
                         </tr>
                     </table>
@@ -76,6 +77,26 @@
     }
     function gridReload(){
         grid.reload();
+    }
+
+    /**
+     * 重置密码
+     * */
+    function f_resetPwd(){
+        var row = grid.getSelected();
+        if (row) {
+            ggs.confirm("是否确定重置密码？", "确定？",
+                    function (action) {
+                        if (action == "ok") {
+                            $GGS.ajax("user!resetPwd.action",{userid:row.userid});
+                            ggs.alert("重置密码成功！");
+                        }
+                    }
+            );
+
+        } else {
+            ggs.alert("请选中一条记录");
+        }
     }
 </script>
 </body>

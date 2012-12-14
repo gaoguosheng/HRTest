@@ -1,7 +1,7 @@
 package com.ggs.hrtest.dao.impl;
 
-import com.ggs.hrtest.bean.PageBean;
-import com.ggs.hrtest.bean.PageParam;
+import com.ggs.hrtest.model.PageModel;
+import com.ggs.hrtest.model.BaseModel;
 import com.ggs.util.HibernateUtil;
 import com.ggs.util.NullUtil;
 
@@ -15,20 +15,20 @@ import java.util.List;
  * To change this template use File | Settings | File Templates.
  */
 public class BaseDAO {
-    protected PageBean getPageBean(String sql,PageParam param){
-        PageBean pageBean = new PageBean();
+    protected PageModel getPageBean(String sql,BaseModel baseModel){
+        PageModel pageModel = new PageModel();
         StringBuilder orderSql = new StringBuilder();
-        if(NullUtil.isNotNull(param.getSortField())){
+        if(NullUtil.isNotNull(baseModel.getSortField())){
             orderSql.append(" order by ");
-            orderSql.append(param.getSortField());
+            orderSql.append(baseModel.getSortField());
             orderSql.append(" ");
-            orderSql.append(param.getSortOrder());
+            orderSql.append(baseModel.getSortOrder());
         }
         String pageSql=sql+orderSql;
         int total = HibernateUtil.countForInt(pageSql);
-        List data = HibernateUtil.sqlQuery(pageSql, param.getPageIndex(), param.getPageSize());
-        pageBean.setTotal(total);
-        pageBean.setData(data);
-        return pageBean;
+        List data = HibernateUtil.sqlQuery(pageSql, baseModel.getPageIndex(), baseModel.getPageSize());
+        pageModel.setTotal(total);
+        pageModel.setData(data);
+        return pageModel;
     }
 }

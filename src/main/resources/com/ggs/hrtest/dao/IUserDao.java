@@ -1,9 +1,10 @@
 package com.ggs.hrtest.dao;
 
 
-import com.ggs.hrtest.bean.PageBean;
-import com.ggs.hrtest.bean.PageParam;
-import com.ggs.hrtest.bean.User;
+import com.ggs.hrtest.model.PageModel;
+import com.ggs.hrtest.model.BaseModel;
+import com.ggs.hrtest.model.UserModel;
+import com.ggs.hrtest.po.User;
 
 public interface IUserDao {
 
@@ -15,5 +16,7 @@ public interface IUserDao {
 
     public void saveUsers(User[]users);
 
-    public PageBean getUserList(User user,PageParam param);
+    public PageModel getUserList(UserModel userModel);
+
+    public void resetPwd(int userid);
 }

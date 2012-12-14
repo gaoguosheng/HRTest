@@ -1,9 +1,0 @@
-[
-    {id: "1", text: "开始测试",url:"test.jsp"},
-	{id: "2", text: "测试分析",url:"usertest.jsp"},
-	{id: "3", text: "系统管理"},
-	{id: "31", text: "试卷管理", pid: "3",url:"test_manage.jsp"},
-	{id: "32", text: "题目管理", pid: "3",url:"topic.jsp"},
-	{id: "33", text: "分析管理", pid: "3",url:"testresult.jsp"},
-	{id: "34", text: "用户管理", pid: "3",url:"user.jsp"}
-]

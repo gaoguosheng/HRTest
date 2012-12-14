@@ -1,7 +1,7 @@
 package com.ggs.hrtest.dao;
 
-import com.ggs.hrtest.bean.*;
-import com.ggs.hrtest.bean.Test;
+import com.ggs.hrtest.model.*;
+import com.ggs.hrtest.po.*;
 
 import java.util.List;
 
@@ -40,7 +40,7 @@ public interface ITestDao {
     /**
      * 获取测试结果列表
      * */
-    public PageBean getUserTestList(PageParam param);
+    public PageModel getUserTestList(TestModel testModel);
 
 
     /**
@@ -52,7 +52,7 @@ public interface ITestDao {
     /**
      * 获取测试解析
      * */
-    public TestResult getTestResult(int testid,int score);
+    public TestResult getTestResult(TestModel testModel);
 
     /**
      * 获取试卷列表
@@ -62,7 +62,7 @@ public interface ITestDao {
     /**
      * 获取题目列表
      * */
-    public PageBean getTopicList(int testid,PageParam param);
+    public PageModel getTopicList(TestModel testModel);
     /**
      * 获取题目信息
      * */
@@ -86,12 +86,12 @@ public interface ITestDao {
     /**
      * 获取答案选项列表
      * */
-    public PageBean getOptionAnswerList(int topicid,PageParam param);
+    public PageModel getOptionAnswerList(TestModel testModel);
 
     /**
      * 获取试卷列表
      * */
-    public PageBean getTestList(PageParam param);
+    public PageModel getTestList(TestModel testModel);
 
 
     /**
@@ -102,7 +102,7 @@ public interface ITestDao {
     /**
      * 获取测试结果列表
      * */
-    public PageBean getTestResultList(int testid,PageParam param);
+    public PageModel getTestResultList(TestModel testModel);
 
     /**
      * 保存测试结果

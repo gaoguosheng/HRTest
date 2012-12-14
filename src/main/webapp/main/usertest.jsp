@@ -29,7 +29,7 @@
 
                 </td>
                 <td style="white-space:nowrap;">
-                    <input id="cname" class="ggs-textbox" emptyText="请输入姓名" style="width:150px;" onenter="onKeyEnter"/>
+                    <input id="username" class="ggs-textbox" emptyText="请输入姓名" style="width:150px;" onenter="onKeyEnter"/>
                     <a class="ggs-button" onclick="search()">查询</a>
                 </td>
             </tr>

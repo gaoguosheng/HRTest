@@ -16,13 +16,25 @@
 
 	<!-- 基包，所有包继承基包 -->
 	<package name="basePackage" extends="struts-default" abstract="true">
+        <!-- 自定义拦截器 -->
+        <interceptors>
+            <interceptor name="adminInterceptor" class="com.ggs.hrtest.interceptor.AdminInterceptor"></interceptor>
+            <interceptor-stack name="commInterceptor">
+                <interceptor-ref name="adminInterceptor"></interceptor-ref>
+                <interceptor-ref name="defaultStack"></interceptor-ref>
+            </interceptor-stack>
+        </interceptors>
+        <!-- 默认拦截器 -->
+        <default-interceptor-ref name="commInterceptor"></default-interceptor-ref>
 	</package>
+
+    <!--Action-->
 	<package name="default" namespace="/" extends="basePackage">
 		<action name="login" class="com.ggs.hrtest.action.LoginAction"></action>
 	</package>
-
 	<package name="main" namespace="/" extends="basePackage">
 		<action name="user" class="com.ggs.hrtest.action.UserAction"></action>
         <action name="test" class="com.ggs.hrtest.action.TestAction"></action>
+        <action name="menu" class="com.ggs.hrtest.action.MenuAction"></action>
 	</package>
 </struts>    

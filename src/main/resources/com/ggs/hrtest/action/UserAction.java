@@ -1,7 +1,8 @@
 package com.ggs.hrtest.action;
 
-import com.ggs.hrtest.bean.PageBean;
-import com.ggs.hrtest.bean.User;
+import com.ggs.hrtest.model.PageModel;
+import com.ggs.hrtest.model.UserModel;
+import com.ggs.hrtest.po.User;
 import com.ggs.hrtest.dao.IUserDao;
 import com.ggs.hrtest.dao.impl.UserDaoImpl;
 import com.ggs.util.MD5;
@@ -15,11 +16,11 @@ import com.opensymphony.xwork2.ModelDriven;
  * Time: 下午12:22
  * To change this template use File | Settings | File Templates.
  */
-public class UserAction extends BaseAction implements ModelDriven<User>{
-    private User model = new User();
+public class UserAction extends BaseAction {
+    private UserModel model = new UserModel();
     private IUserDao userDao = new UserDaoImpl();
     @Override
-    public User getModel() {
+    public UserModel getModel() {
         return this.model;
     }
     /**
@@ -44,8 +45,15 @@ public class UserAction extends BaseAction implements ModelDriven<User>{
      * 获取用户列表
      * */
     public void getUserList(){
-        PageBean pageBean = userDao.getUserList(this.getModel(),this.getPageParam());
-        this.outJson(pageBean);
+        PageModel pageModel = userDao.getUserList(this.getModel());
+        this.outJson(pageModel);
+    }
+
+    /**
+     * 重置密码
+     * */
+    public void resetPwd(){
+        this.userDao.resetPwd(this.getModel().getUserid());
     }
 
 }

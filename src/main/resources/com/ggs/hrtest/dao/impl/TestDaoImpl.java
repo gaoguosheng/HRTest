@@ -1,10 +1,10 @@
 package com.ggs.hrtest.dao.impl;
 
-import com.ggs.hrtest.bean.*;
+import com.ggs.hrtest.model.*;
 import com.ggs.hrtest.dao.ITestDao;
+import com.ggs.hrtest.po.*;
 import com.ggs.util.DateUtil;
 import com.ggs.util.HibernateUtil;
-import com.ggs.util.NullUtil;
 
 import java.util.List;
 
@@ -61,11 +61,11 @@ public class TestDaoImpl extends BaseDAO implements ITestDao {
     /**
      * 获取测试结果列表
      * */
-    public PageBean getUserTestList(PageParam param){
+    public PageModel getUserTestList(TestModel testModel){
         StringBuilder sql = new StringBuilder();
         sql.append(" select * from v_usertest where 1=1");
-        PageBean pageBean = this.getPageBean(sql.toString(),param);
-        return pageBean;
+        PageModel pageModel = this.getPageBean(sql.toString(),testModel);
+        return pageModel;
     }
 
     /**
@@ -78,11 +78,11 @@ public class TestDaoImpl extends BaseDAO implements ITestDao {
     /**
      * 获取测试解析
      * */
-    public TestResult getTestResult(int testid,int score){
+    public TestResult getTestResult(TestModel testModel){
         return (TestResult)HibernateUtil.queryOneObject("from TestResult where testid=? and stscore<=? and edscore>=?",new Object[]{
-                testid,
-                score,
-                score
+                testModel.getTestid(),
+                testModel.getScore(),
+                testModel.getScore()
         });
     }
 
@@ -96,10 +96,10 @@ public class TestDaoImpl extends BaseDAO implements ITestDao {
     /**
      * 获取题目列表
      * */
-    public PageBean getTopicList(int testid,PageParam param){
+    public PageModel getTopicList(TestModel testModel){
         StringBuilder sql = new StringBuilder();
-        sql.append("select * from t_topic where testid="+testid);
-        return this.getPageBean(sql.toString(),param);
+        sql.append("select * from t_topic where testid="+testModel.getTestid());
+        return this.getPageBean(sql.toString(),testModel);
     }
 
     /**
@@ -142,21 +142,21 @@ public class TestDaoImpl extends BaseDAO implements ITestDao {
     /**
      * 获取答案选项列表
      * */
-    public PageBean getOptionAnswerList(int topicid,PageParam param){
+    public PageModel getOptionAnswerList(TestModel testModel){
         StringBuilder sql = new StringBuilder();
-        sql.append("select * from t_optionanswer where topicid="+topicid);
-        PageBean pageBean =this.getPageBean(sql.toString(),param);
-        return pageBean;
+        sql.append("select * from t_optionanswer where topicid="+testModel.getTopicid());
+        PageModel pageModel =this.getPageBean(sql.toString(),testModel);
+        return pageModel;
     }
 
     /**
      * 获取试卷列表
      * */
-    public PageBean getTestList(PageParam param){
+    public PageModel getTestList(TestModel testModel){
         StringBuilder sql = new StringBuilder();
         sql.append("select * from t_test");
-        PageBean pageBean = this.getPageBean(sql.toString(),param);
-        return pageBean;
+        PageModel pageModel = this.getPageBean(sql.toString(),testModel);
+        return pageModel;
     }
 
     /**
@@ -169,11 +169,11 @@ public class TestDaoImpl extends BaseDAO implements ITestDao {
     /**
      * 获取测试结果列表
      * */
-    public PageBean getTestResultList(int testid,PageParam param){
+    public PageModel getTestResultList(TestModel testModel){
         StringBuilder sql = new StringBuilder();
-        sql.append("select * from t_testresult where testid="+testid);
-        PageBean pageBean = this.getPageBean(sql.toString(),param);
-        return pageBean;
+        sql.append("select * from t_testresult where testid="+testModel.getTestid());
+        PageModel pageModel = this.getPageBean(sql.toString(),testModel);
+        return pageModel;
     }
 
     /**

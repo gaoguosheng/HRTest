@@ -32,14 +32,22 @@
     </div>
 </div>
 <ul id="menu1" class="ggs-menubar" style="width:100%;"
-    url="menu.txt" onitemclick="onItemClick"
-    textField="text" idField="id" parentField="pid">
+    url="menu!list.action" onitemclick="onItemClick"
+    textField="menuname" idField="menuid" parentField="upid">
 </ul>
 <div class="ggs-fit" style="padding-top:5px;">
     <!--Tabs-->
     <div id="mainTabs" class="ggs-tabs" activeIndex="0" style="width:100%;height:100%;"
             >
-        <div title="首页" url="" ></div>
+        <div title="首页" url="">
+            <div align="center">
+                <div style="height: 100px;"></div>
+                <div>
+                    <a href="#" onclick="f_startTest();return false;" title="开始测试"><img border="0" src="<%=path%>/images/play.png"><div>开始测试</div></a>
+                </div>
+
+            </div>
+        </div>
     </div>
 </div>
 <div style="line-height:28px;text-align:center;cursor:default"><%=Const.COPY%></div>
@@ -96,16 +104,16 @@
     function showTab(node) {
         var tabs = ggs.get("mainTabs");
 
-        var id = "tab$" + node.id;
+        var id = "tab$" + node.menuid;
         var tab = tabs.getTab(id);
         if (!tab) {
             tab = {};
             tab.name = id;
-            tab.title = node.text;
+            tab.title = node.menuname;
             tab.showCloseButton = true;
 
             //这里拼接了url，实际项目，应该从后台直接获得完整的url地址
-            tab.url =  node.url;
+            tab.url = "<%=path%>/"+ node.url;
 
             tabs.addTab(tab);
         }
@@ -152,6 +160,24 @@
         var json = ggs.encode(data);
         var t = $GGS.getJSON("user!updatePwd.action",{data:json});
         ggs.alert("密码更新成功！");
+    }
+
+    function f_startTest(){
+        var tabs = ggs.get("mainTabs");
+        var id = "tab$1";
+        var tab = tabs.getTab(id);
+        if (!tab) {
+            tab = {};
+            tab.name = id;
+            tab.title = "开始测试";
+            tab.showCloseButton = true;
+
+            //这里拼接了url，实际项目，应该从后台直接获得完整的url地址
+            tab.url =  "test.jsp";
+
+            tabs.addTab(tab);
+        }
+        tabs.activeTab(tab);
     }
 
 </script>

@@ -1,8 +1,9 @@
 package com.ggs.hrtest.action;
 
-import com.ggs.hrtest.bean.*;
+import com.ggs.hrtest.model.*;
 import com.ggs.hrtest.dao.ITestDao;
 import com.ggs.hrtest.dao.impl.TestDaoImpl;
+import com.ggs.hrtest.po.*;
 import com.ggs.util.DateUtil;
 import com.opensymphony.xwork2.ModelDriven;
 
@@ -15,12 +16,12 @@ import java.util.List;
  * Time: 下午2:12
  * To change this template use File | Settings | File Templates.
  */
-public class TestAction extends BaseAction implements ModelDriven<Test>{
+public class TestAction extends BaseAction{
 
     private ITestDao testDao = new TestDaoImpl();
-    private Test model = new Test();
+    private TestModel model = new TestModel();
     @Override
-    public Test getModel() {
+    public TestModel getModel() {
         return model;
     }
 
@@ -28,7 +29,7 @@ public class TestAction extends BaseAction implements ModelDriven<Test>{
      * 试卷测试
      * */
     public void test(){
-        List topicList = testDao.getTopics(model.getTestid());
+        List topicList = testDao.getTopics(this.getModel().getTestid());
         request.setAttribute("topicList",topicList);
         this.forward("/main/test_detail.jsp");
     }
@@ -37,8 +38,7 @@ public class TestAction extends BaseAction implements ModelDriven<Test>{
      * 获取该题的备选答案
      * */
     public void getOptionAnswersByTopic(){
-        Integer topicid = this.getIntParam("topicid");
-        List optionList = testDao.getOptionAnswersByTopic(topicid);
+        List optionList = testDao.getOptionAnswersByTopic(this.getModel().getTopicid());
         this.outJson(optionList);
     }
 
@@ -59,8 +59,8 @@ public class TestAction extends BaseAction implements ModelDriven<Test>{
      * 获取测试结果列表
      * */
     public void getUserTestList(){
-        PageBean pageBean = testDao.getUserTestList(this.getPageParam());
-        this.outJson(pageBean);
+        PageModel pageModel = testDao.getUserTestList(this.getModel());
+        this.outJson(pageModel);
     }
 
 
@@ -68,8 +68,7 @@ public class TestAction extends BaseAction implements ModelDriven<Test>{
      * 获取测试结果明细列表
      * */
     public void getUserTestDetailList(){
-        int utestid = this.getIntParam("utestid");
-        List detailList = testDao.getUserTestDetailList(utestid);
+        List detailList = testDao.getUserTestDetailList(this.getModel().getUtestid());
         request.setAttribute("detailList",detailList);
         this.forward("/main/usertest_detail.jsp");
     }
@@ -78,9 +77,7 @@ public class TestAction extends BaseAction implements ModelDriven<Test>{
      * 获取测试答题解析
      * */
     public void getTestResult(){
-        int testid = this.getIntParam("testid");
-        int score = this.getIntParam("score");
-        TestResult testResult = testDao.getTestResult(testid,score);
+        TestResult testResult = testDao.getTestResult(this.getModel());
         this.outJson(testResult);
     }
 
@@ -96,8 +93,8 @@ public class TestAction extends BaseAction implements ModelDriven<Test>{
      * 获取题目列表
      * */
     public void getTopicList(){
-        PageBean pageBean = this.testDao.getTopicList(this.getModel().getTestid(),this.getPageParam());
-        this.outJson(pageBean);
+        PageModel pageModel = this.testDao.getTopicList(this.getModel());
+        this.outJson(pageModel);
     }
 
     /**
@@ -137,16 +134,16 @@ public class TestAction extends BaseAction implements ModelDriven<Test>{
      * 获取答案选项列表
      * */
     public void getOptionAnswerList(){
-        PageBean pageBean = this.testDao.getOptionAnswerList(this.getIntParam("topicid"),this.getPageParam());
-        this.outJson(pageBean);
+        PageModel pageModel = this.testDao.getOptionAnswerList(this.getModel());
+        this.outJson(pageModel);
     }
 
     /***
      * 获取测试试卷列表（分页）
      * */
     public void getTestPageList(){
-        PageBean pageBean =  this.testDao.getTestList(this.getPageParam());
-        this.outJson(pageBean);
+        PageModel pageModel =  this.testDao.getTestList(this.getModel());
+        this.outJson(pageModel);
     }
 
     /**
@@ -161,8 +158,8 @@ public class TestAction extends BaseAction implements ModelDriven<Test>{
      * 获取测试结果列表
      * */
     public void getTestResultList(){
-        PageBean pageBean = this.testDao.getTestResultList(this.getModel().getTestid(),this.getPageParam());
-        this.outJson(pageBean);
+        PageModel pageModel = this.testDao.getTestResultList(this.getModel());
+        this.outJson(pageModel);
     }
 
     /**

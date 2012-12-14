@@ -1,8 +1,8 @@
 package com.ggs.util;
 
-import javassist.bytecode.analysis.Type;
+
 import org.hibernate.*;
-import org.hibernate.cfg.AnnotationConfiguration;
+
 import org.hibernate.cfg.Configuration;
 import org.hibernate.transform.Transformers;
 
@@ -15,8 +15,7 @@ public class HibernateUtil {
 
 
     private static String CONFIG_FILE_LOCATION = "/hibernate.cfg.xml";
-	private static final ThreadLocal<Session> threadLocal = new ThreadLocal<Session>();
-    private  static Configuration configuration = new AnnotationConfiguration();
+    private  static Configuration configuration = new Configuration();
     private static org.hibernate.SessionFactory sessionFactory;
     private static String configFile = CONFIG_FILE_LOCATION;
 
@@ -41,17 +40,7 @@ public class HibernateUtil {
      *  @throws org.hibernate.HibernateException
      */
     public static Session getSession() throws HibernateException {
-        Session session = (Session) threadLocal.get();
-
-		if (session == null || !session.isOpen()) {
-			if (sessionFactory == null) {
-				rebuildSessionFactory();
-			}
-			session = (sessionFactory != null) ? sessionFactory.openSession()
-					: null;
-			threadLocal.set(session);
-		}
-
+        Session session = sessionFactory.openSession();
         return session;
     }
 
@@ -70,19 +59,7 @@ public class HibernateUtil {
 		}
 	}
 
-	/**
-     *  Close the single hibernate session instance.
-     *
-     *  @throws org.hibernate.HibernateException
-     */
-    public static void closeSession() throws HibernateException {
-        Session session = (Session) threadLocal.get();
-        threadLocal.set(null);
 
-        if (session != null) {
-            session.close();
-        }
-    }
 
 	/**
      *  return session factory
@@ -120,7 +97,7 @@ public class HibernateUtil {
             tx.rollback();
             e.printStackTrace();
         }finally {
-            closeSession();
+            session.close();
         }
     }
 
@@ -134,7 +111,7 @@ public class HibernateUtil {
             tx.rollback();
             e.printStackTrace();
         }finally {
-            closeSession();
+            session.close();
         }
     }
 
@@ -148,7 +125,7 @@ public class HibernateUtil {
             tx.rollback();
             e.printStackTrace();
         }finally {
-            closeSession();
+            session.close();
         }
     }
 
@@ -162,7 +139,7 @@ public class HibernateUtil {
             tx.rollback();
             e.printStackTrace();
         }finally {
-            closeSession();
+            session.close();
         }
     }
 
@@ -170,21 +147,20 @@ public class HibernateUtil {
         Session session = getSession();
         Transaction tx = session.beginTransaction();
         try{
-            Object o = get(c,id);
-            session.delete(o);
+            session.delete(session.get(c,id));
             tx.commit();
         }catch (Exception e){
             tx.rollback();
             e.printStackTrace();
         }finally {
-            closeSession();
+            session.close();
         }
     }
 
     public static Object get(Class c, Serializable id){
         Session session = getSession();
         Object o  = session.get(c,id);
-        closeSession();
+        session.close();
         return o;
     }
 
@@ -192,7 +168,7 @@ public class HibernateUtil {
         Session session = getSession();
         Query query = session.createQuery(hql);
         List list = query.list();
-        closeSession();
+        session.close();
         return list;
     }
 
@@ -208,7 +184,7 @@ public class HibernateUtil {
         }catch (Exception e){
             e.printStackTrace();
         }finally {
-            closeSession();
+            session.close();
         }
         return list;
     }
@@ -218,7 +194,7 @@ public class HibernateUtil {
         SQLQuery query = session.createSQLQuery(sql);
         query.setResultTransformer(Transformers.ALIAS_TO_ENTITY_MAP);
         List list = query.list();
-        closeSession();
+        session.close();
         return list;
     }
 
@@ -229,7 +205,7 @@ public class HibernateUtil {
         query.setFirstResult(firstFesult);
         query.setMaxResults(maxResults);
         List list = query.list();
-        closeSession();
+        session.close();
         return list;
     }
 
@@ -242,7 +218,7 @@ public class HibernateUtil {
             query.setParameter(i,o[i]);
         }
         List list = query.list();
-        closeSession();
+        session.close();
         return list;
     }
 
@@ -258,7 +234,7 @@ public class HibernateUtil {
             tx.rollback();
             e.printStackTrace();
         }finally {
-            closeSession();
+            session.close();
         }
     }
 
@@ -275,7 +251,7 @@ public class HibernateUtil {
             tx.rollback();
             e.printStackTrace();
         }finally {
-            closeSession();
+            session.close();
         }
     }
 
@@ -286,7 +262,7 @@ public class HibernateUtil {
         SQLQuery query = session.createSQLQuery(sql);
         List list = query.list();
         result=list.size();
-        closeSession();
+        session.close();
         return result;
     }
 
@@ -306,7 +282,7 @@ public class HibernateUtil {
         }catch (Exception e){
             e.printStackTrace();
         }finally {
-            closeSession();
+            session.close();
         }
         return result;
     }
@@ -322,7 +298,7 @@ public class HibernateUtil {
             tx.rollback();
             e.printStackTrace();
         }finally {
-            closeSession();
+            session.close();
         }
     }
 
@@ -340,7 +316,7 @@ public class HibernateUtil {
             tx.rollback();
             e.printStackTrace();
         }finally {
-            closeSession();
+            session.close();
         }
     }
 

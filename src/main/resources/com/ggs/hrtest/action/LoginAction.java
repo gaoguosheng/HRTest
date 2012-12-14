@@ -1,6 +1,6 @@
 package com.ggs.hrtest.action;
 
-import com.ggs.hrtest.bean.User;
+import com.ggs.hrtest.po.User;
 import com.ggs.hrtest.dao.IUserDao;
 import com.ggs.hrtest.dao.impl.UserDaoImpl;
 import com.ggs.util.MD5;

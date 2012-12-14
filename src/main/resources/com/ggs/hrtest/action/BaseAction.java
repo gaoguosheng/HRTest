@@ -10,9 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.ggs.hrtest.bean.PageParam;
-import com.ggs.hrtest.bean.User;
+import com.ggs.hrtest.model.BaseModel;
+import com.ggs.hrtest.po.User;
 import com.ggs.util.NullUtil;
+import com.opensymphony.xwork2.ModelDriven;
 import org.apache.struts2.interceptor.ServletRequestAware;
 import org.apache.struts2.interceptor.ServletResponseAware;
 
@@ -28,7 +29,9 @@ import com.opensymphony.xwork2.ActionSupport;
  */
 
 public  class BaseAction extends ActionSupport implements
-		ServletRequestAware, ServletResponseAware, Serializable {
+		ServletRequestAware, ServletResponseAware, Serializable,ModelDriven<BaseModel> {
+
+    private BaseModel model = new BaseModel();
 
 	protected HttpServletRequest request;
 	protected HttpServletResponse response;
@@ -143,13 +146,13 @@ public  class BaseAction extends ActionSupport implements
 	/**
 	 * 获取分页参数
 	 * */
-	public PageParam getPageParam(){
-		PageParam pageParam = new PageParam();
-		pageParam.setSortField(request.getParameter("sortField"));
-		pageParam.setSortOrder(request.getParameter("sortOrder"));
-		pageParam.setPageIndex(request.getParameter("pageIndex")!=null?Integer.parseInt(request.getParameter("pageIndex")):0);
-		pageParam.setPageSize(request.getParameter("pageSize")!=null?Integer.parseInt(request.getParameter("pageSize")):10);
-		return pageParam;
+	public BaseModel getPageParam(){
+		BaseModel baseModel = new BaseModel();
+		baseModel.setSortField(request.getParameter("sortField"));
+		baseModel.setSortOrder(request.getParameter("sortOrder"));
+		baseModel.setPageIndex(request.getParameter("pageIndex")!=null?Integer.parseInt(request.getParameter("pageIndex")):0);
+		baseModel.setPageSize(request.getParameter("pageSize")!=null?Integer.parseInt(request.getParameter("pageSize")):10);
+		return baseModel;
 	}
 
     public User getAdmin(){
@@ -166,7 +169,12 @@ public  class BaseAction extends ActionSupport implements
     public String getParam(String param){
         return request.getParameter(param);
     }
-	
 
+
+    @Override
+    public BaseModel getModel() {
+        model.setAdmin(this.getAdmin());
+        return model;
+    }
 }
 
