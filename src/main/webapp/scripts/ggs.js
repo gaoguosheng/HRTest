@@ -28,6 +28,25 @@ var $GGS={
             }
         });
         return node;
+    },
+    //分钟倒计时
+    downCount:function (minutes,fun){
+        if(minutes<1)return;
+        var min = minutes-1;
+        var seconds=60;
+        document.write("<span id='downcountDiv'></span>");
+        var downcountTimer=setInterval(function (){
+            seconds--;
+            $("#downcountDiv").html(min+" 分 "+seconds+" 秒");
+            if(min==0 && seconds==0){
+                window.clearInterval(downcountTimer);
+                fun();
+            }
+            if(seconds==0){
+                min--;
+                seconds=60;
+            }
+        },1000);
     }
 
 }

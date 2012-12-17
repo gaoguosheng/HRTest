@@ -24,6 +24,15 @@ public class Test {
     private String title;
     private String memo;
     private Integer ordernum;
+    private Integer minutes;
+
+    public Integer getMinutes() {
+        return minutes;
+    }
+
+    public void setMinutes(Integer minutes) {
+        this.minutes = minutes;
+    }
 
     public Integer getOrdernum() {
         return ordernum;

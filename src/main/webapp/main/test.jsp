@@ -49,7 +49,7 @@
             tab.showCloseButton = true;
 
             //这里拼接了url，实际项目，应该从后台直接获得完整的url地址
-            tab.url ="test!test.action?testid="+node.testid ;
+            tab.url ="test!test.action?testid="+node.testid+"&minutes="+node.minutes ;
 
             tabs.addTab(tab);
         }

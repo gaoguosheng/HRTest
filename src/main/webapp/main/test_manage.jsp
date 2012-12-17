@@ -43,6 +43,9 @@
             <div field="title"width="50">试卷名称
                 <input property="editor" class="ggs-textbox" style="width:100%;" vtype="required"/>
             </div>
+            <div field="minutes"width="30">测试时间（分钟）
+                <input property="editor" class="ggs-spinner" minValue="1" maxValue="120" style="width:100%;" vtype="required"/>
+            </div>
             <div field="memo" >备注
                 <input property="editor" class="ggs-textbox" style="width:100%;" vtype="required"/>
             </div>

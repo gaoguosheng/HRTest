@@ -10,10 +10,37 @@ Target Server Type    : MYSQL
 Target Server Version : 60005
 File Encoding         : 65001
 
-Date: 2012-12-12 16:37:46
+Date: 2012-12-14 17:09:59
 */
 
 SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for `t_menu`
+-- ----------------------------
+DROP TABLE IF EXISTS `t_menu`;
+CREATE TABLE `t_menu` (
+  `menuid` int(11) NOT NULL AUTO_INCREMENT,
+  `menuname` varchar(20) DEFAULT NULL,
+  `ordernum` int(11) DEFAULT '1',
+  `upid` int(11) DEFAULT '0',
+  `url` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`menuid`)
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of t_menu
+-- ----------------------------
+INSERT INTO `t_menu` VALUES ('1', '开始测试', '1', '0', 'main/test.jsp');
+INSERT INTO `t_menu` VALUES ('2', '测试记录', '2', '0', 'main/usertest.jsp');
+INSERT INTO `t_menu` VALUES ('3', '系统管理', '4', '0', null);
+INSERT INTO `t_menu` VALUES ('4', '试卷管理', '1', '9', 'main/test_manage.jsp');
+INSERT INTO `t_menu` VALUES ('5', '题目管理', '2', '9', 'main/topic.jsp');
+INSERT INTO `t_menu` VALUES ('6', '分析管理', '3', '9', 'main/testresult.jsp');
+INSERT INTO `t_menu` VALUES ('7', '用户管理', '1', '3', 'main/user.jsp');
+INSERT INTO `t_menu` VALUES ('8', '菜单管理', '3', '3', 'main/menu.jsp');
+INSERT INTO `t_menu` VALUES ('9', '测试管理', '3', '0', null);
+INSERT INTO `t_menu` VALUES ('10', '角色管理', '2', '3', 'main/role.jsp');
 
 -- ----------------------------
 -- Table structure for `t_optionanswer`
@@ -26,7 +53,7 @@ CREATE TABLE `t_optionanswer` (
   `score` int(11) DEFAULT NULL,
   `topicid` int(11) DEFAULT NULL,
   PRIMARY KEY (`optansid`)
-) ENGINE=MyISAM AUTO_INCREMENT=196 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=199 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_optionanswer
@@ -221,6 +248,58 @@ INSERT INTO `t_optionanswer` VALUES ('192', '4', '王安石', '0', '49');
 INSERT INTO `t_optionanswer` VALUES ('193', '3', '苏洵', '0', '49');
 INSERT INTO `t_optionanswer` VALUES ('194', '2', '欧阳修', '0', '49');
 INSERT INTO `t_optionanswer` VALUES ('195', '1', '韩愈', '4', '49');
+INSERT INTO `t_optionanswer` VALUES ('196', '3', '不是', '1', '50');
+INSERT INTO `t_optionanswer` VALUES ('197', '2', '不能确定', '2', '50');
+INSERT INTO `t_optionanswer` VALUES ('198', '1', '是', '2', '50');
+
+-- ----------------------------
+-- Table structure for `t_role`
+-- ----------------------------
+DROP TABLE IF EXISTS `t_role`;
+CREATE TABLE `t_role` (
+  `roleid` int(11) NOT NULL AUTO_INCREMENT,
+  `rolename` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`roleid`)
+) ENGINE=MyISAM AUTO_INCREMENT=45 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of t_role
+-- ----------------------------
+INSERT INTO `t_role` VALUES ('1', '普通用户');
+INSERT INTO `t_role` VALUES ('2', '管理员');
+INSERT INTO `t_role` VALUES ('9', '超级管理员');
+
+-- ----------------------------
+-- Table structure for `t_rolemenu`
+-- ----------------------------
+DROP TABLE IF EXISTS `t_rolemenu`;
+CREATE TABLE `t_rolemenu` (
+  `roleid` int(11) NOT NULL DEFAULT '0',
+  `menuid` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`roleid`,`menuid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of t_rolemenu
+-- ----------------------------
+INSERT INTO `t_rolemenu` VALUES ('1', '1');
+INSERT INTO `t_rolemenu` VALUES ('1', '2');
+INSERT INTO `t_rolemenu` VALUES ('2', '1');
+INSERT INTO `t_rolemenu` VALUES ('2', '2');
+INSERT INTO `t_rolemenu` VALUES ('2', '4');
+INSERT INTO `t_rolemenu` VALUES ('2', '5');
+INSERT INTO `t_rolemenu` VALUES ('2', '6');
+INSERT INTO `t_rolemenu` VALUES ('2', '9');
+INSERT INTO `t_rolemenu` VALUES ('9', '1');
+INSERT INTO `t_rolemenu` VALUES ('9', '2');
+INSERT INTO `t_rolemenu` VALUES ('9', '3');
+INSERT INTO `t_rolemenu` VALUES ('9', '4');
+INSERT INTO `t_rolemenu` VALUES ('9', '5');
+INSERT INTO `t_rolemenu` VALUES ('9', '6');
+INSERT INTO `t_rolemenu` VALUES ('9', '7');
+INSERT INTO `t_rolemenu` VALUES ('9', '8');
+INSERT INTO `t_rolemenu` VALUES ('9', '9');
+INSERT INTO `t_rolemenu` VALUES ('9', '10');
 
 -- ----------------------------
 -- Table structure for `t_test`
@@ -239,7 +318,7 @@ CREATE TABLE `t_test` (
 -- ----------------------------
 INSERT INTO `t_test` VALUES ('1', '职业经理人压力应变能力测评', '测试目标：    1，了解你的压力承受能力；    2，了解对压力的应变能力；    3，给你面对外来压力时的应对方法：     4，如何建立你作为一个职业经理人和生活成功人士所需要的压力应对能力。 ', '1');
 INSERT INTO `t_test` VALUES ('2', '心理测试', '本心理测试是由中国现代心理研究所以著名的美国兰德公司（战略研究所）拟制的一套经典心理测试题为蓝本，根据中国人心理特点加以适当改造后形成的心理测试题，目前已被一些著名大公司，如联想、长虹、海尔等公司作为对员工心理测试的重要辅助试卷。 注意：每题只能选择一个答案，应为你第一印象的答案，把相应答案的分值加在一起即为你的得分。 ', '2');
-INSERT INTO `t_test` VALUES ('3', '素质测试', null, '3');
+INSERT INTO `t_test` VALUES ('3', '素质测试', '在公司里，不同岗位的人，需要不同性格的人，比如，营销、公关岗位的人，应该选择外向型人才，而科研开发则应该选择偏内向型的人才。 本测试正是为这种人才选择提供依据的。 ', '3');
 INSERT INTO `t_test` VALUES ('4', '判断能力测试题', null, '4');
 INSERT INTO `t_test` VALUES ('5', '*霍兰德职业倾向测验量表', null, '5');
 INSERT INTO `t_test` VALUES ('6', '*艾森克情绪稳定性测验', null, '6');
@@ -263,7 +342,7 @@ CREATE TABLE `t_testresult` (
   `content` varchar(500) DEFAULT NULL,
   `memo` varchar(1000) DEFAULT NULL,
   PRIMARY KEY (`resultid`)
-) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_testresult
@@ -297,7 +376,7 @@ CREATE TABLE `t_topic` (
   `content` varchar(500) DEFAULT NULL,
   `testid` int(11) DEFAULT NULL,
   PRIMARY KEY (`topicid`)
-) ENGINE=MyISAM AUTO_INCREMENT=50 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=51 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_topic
@@ -350,6 +429,7 @@ INSERT INTO `t_topic` VALUES ('46', '2', '20  12  32  12  44  12     （    ）'
 INSERT INTO `t_topic` VALUES ('47', '1', '“你工作多久挣的钱，才能够买一个麦当劳‘巨无霸’？”要是猛然被这样提问，多数人可能会打个愣，因为不少人通常更习惯另一种算法，即我一个月的工资够买几个“巨无霸”？这两个问题看上去是一回事儿，但在统计学意义上却有着明显的差别。前者是以商品来考察劳动力的价值，后者则是（    ）', '13');
 INSERT INTO `t_topic` VALUES ('48', '2', '有了国内外巨大的价差，石油企业更愿意将成品油销往海外。同时，国际石油投机商也迅速抓住了这个机会，以来料加工为（ ），将低价成品油大量出口到境外大赚一笔，这样的情况又造成国内成品油供应紧张，（ ）了国内油品市场。', '13');
 INSERT INTO `t_topic` VALUES ('49', '3', '下面的作家是唐宋八大家中的四位，其中属于唐朝的一位是（    ）', '13');
+INSERT INTO `t_topic` VALUES ('50', '4', '当你遇到不快乐的事情时，你能抑制感情，不露声色。', '3');
 
 -- ----------------------------
 -- Table structure for `t_user`
@@ -359,15 +439,23 @@ CREATE TABLE `t_user` (
   `userid` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(20) DEFAULT NULL,
   `pwd` varchar(50) DEFAULT NULL,
+  `roleid` int(11) DEFAULT NULL,
+  `realname` varchar(20) DEFAULT NULL,
+  `tel` varchar(20) DEFAULT NULL,
+  `qq` varchar(20) DEFAULT NULL,
+  `email` varchar(20) DEFAULT NULL,
+  `memo` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`userid`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_user
 -- ----------------------------
-INSERT INTO `t_user` VALUES ('1', 'admin', '202cb962ac59075b964b07152d234b70');
-INSERT INTO `t_user` VALUES ('2', '高国生', 'e10adc3949ba59abbe56e057f20f883e');
-INSERT INTO `t_user` VALUES ('3', 'test', 'e10adc3949ba59abbe56e057f20f883e');
+INSERT INTO `t_user` VALUES ('1', 'admin', 'e10adc3949ba59abbe56e057f20f883e', '9', '超级管理员', null, null, null, null);
+INSERT INTO `t_user` VALUES ('2', 'ggs', 'e10adc3949ba59abbe56e057f20f883e', '2', '高国生', '18959189975', '18087249', 'gswon@vip.qq.com', '项目经理');
+INSERT INTO `t_user` VALUES ('3', 'cy', 'e10adc3949ba59abbe56e057f20f883e', '2', '陈毅', '18950287888', '357133728', '357133728@qq.com', '人资总监');
+INSERT INTO `t_user` VALUES ('4', 'fxy', 'e10adc3949ba59abbe56e057f20f883e', '1', '方小燕', '15880059158', '1552138757', '1552138757@qq.com', '人资经理');
+INSERT INTO `t_user` VALUES ('5', 'yxb', 'e10adc3949ba59abbe56e057f20f883e', '1', '杨晓斌', '13799360373', '', '', '');
 
 -- ----------------------------
 -- Table structure for `t_useranswer`
@@ -384,155 +472,21 @@ CREATE TABLE `t_useranswer` (
 -- ----------------------------
 -- Records of t_useranswer
 -- ----------------------------
-INSERT INTO `t_useranswer` VALUES ('7', '4', '10', '2');
-INSERT INTO `t_useranswer` VALUES ('8', '5', '17', '2');
-INSERT INTO `t_useranswer` VALUES ('9', '6', '23', '2');
-INSERT INTO `t_useranswer` VALUES ('4', '1', '2', '1');
-INSERT INTO `t_useranswer` VALUES ('5', '2', '6', '1');
-INSERT INTO `t_useranswer` VALUES ('6', '3', '8', '1');
-INSERT INTO `t_useranswer` VALUES ('10', '7', '28', '2');
-INSERT INTO `t_useranswer` VALUES ('11', '8', '33', '2');
-INSERT INTO `t_useranswer` VALUES ('12', '1', '1', '3');
-INSERT INTO `t_useranswer` VALUES ('13', '2', '6', '3');
-INSERT INTO `t_useranswer` VALUES ('14', '3', '9', '3');
-INSERT INTO `t_useranswer` VALUES ('15', '1', '3', '4');
-INSERT INTO `t_useranswer` VALUES ('16', '2', '5', '4');
-INSERT INTO `t_useranswer` VALUES ('17', '3', '9', '4');
-INSERT INTO `t_useranswer` VALUES ('18', '4', '10', '5');
-INSERT INTO `t_useranswer` VALUES ('19', '5', '18', '5');
-INSERT INTO `t_useranswer` VALUES ('20', '6', '23', '5');
-INSERT INTO `t_useranswer` VALUES ('21', '7', '27', '5');
-INSERT INTO `t_useranswer` VALUES ('22', '8', '34', '5');
-INSERT INTO `t_useranswer` VALUES ('23', '9', '41', '5');
-INSERT INTO `t_useranswer` VALUES ('24', '10', '43', '5');
-INSERT INTO `t_useranswer` VALUES ('25', '11', '48', '5');
-INSERT INTO `t_useranswer` VALUES ('26', '12', '56', '5');
-INSERT INTO `t_useranswer` VALUES ('27', '13', '58', '5');
-INSERT INTO `t_useranswer` VALUES ('28', '14', '67', '5');
-INSERT INTO `t_useranswer` VALUES ('29', '15', '72', '5');
-INSERT INTO `t_useranswer` VALUES ('30', '16', '79', '5');
-INSERT INTO `t_useranswer` VALUES ('31', '17', '81', '5');
-INSERT INTO `t_useranswer` VALUES ('32', '18', '86', '5');
-INSERT INTO `t_useranswer` VALUES ('33', '4', '11', '6');
-INSERT INTO `t_useranswer` VALUES ('34', '5', '15', '6');
-INSERT INTO `t_useranswer` VALUES ('35', '6', '25', '6');
-INSERT INTO `t_useranswer` VALUES ('36', '7', '31', '6');
-INSERT INTO `t_useranswer` VALUES ('37', '8', '34', '6');
-INSERT INTO `t_useranswer` VALUES ('38', '9', '41', '6');
-INSERT INTO `t_useranswer` VALUES ('39', '10', '47', '6');
-INSERT INTO `t_useranswer` VALUES ('40', '11', '48', '6');
-INSERT INTO `t_useranswer` VALUES ('41', '12', '55', '6');
-INSERT INTO `t_useranswer` VALUES ('42', '13', '61', '6');
-INSERT INTO `t_useranswer` VALUES ('43', '14', '64', '6');
-INSERT INTO `t_useranswer` VALUES ('44', '15', '72', '6');
-INSERT INTO `t_useranswer` VALUES ('45', '16', '79', '6');
-INSERT INTO `t_useranswer` VALUES ('46', '17', '84', '6');
-INSERT INTO `t_useranswer` VALUES ('47', '18', '90', '6');
-INSERT INTO `t_useranswer` VALUES ('48', '4', '14', '7');
-INSERT INTO `t_useranswer` VALUES ('49', '5', '17', '7');
-INSERT INTO `t_useranswer` VALUES ('50', '6', '23', '7');
-INSERT INTO `t_useranswer` VALUES ('51', '7', '31', '7');
-INSERT INTO `t_useranswer` VALUES ('52', '8', '34', '7');
-INSERT INTO `t_useranswer` VALUES ('53', '9', '39', '7');
-INSERT INTO `t_useranswer` VALUES ('54', '10', '47', '7');
-INSERT INTO `t_useranswer` VALUES ('55', '11', '48', '7');
-INSERT INTO `t_useranswer` VALUES ('56', '12', '57', '7');
-INSERT INTO `t_useranswer` VALUES ('57', '13', '60', '7');
-INSERT INTO `t_useranswer` VALUES ('58', '14', '65', '7');
-INSERT INTO `t_useranswer` VALUES ('59', '15', '72', '7');
-INSERT INTO `t_useranswer` VALUES ('60', '16', '78', '7');
-INSERT INTO `t_useranswer` VALUES ('61', '17', '84', '7');
-INSERT INTO `t_useranswer` VALUES ('62', '18', '85', '7');
-INSERT INTO `t_useranswer` VALUES ('63', '4', '14', '8');
-INSERT INTO `t_useranswer` VALUES ('64', '5', '17', '8');
-INSERT INTO `t_useranswer` VALUES ('65', '6', '23', '8');
-INSERT INTO `t_useranswer` VALUES ('66', '7', '31', '8');
-INSERT INTO `t_useranswer` VALUES ('67', '8', '34', '8');
-INSERT INTO `t_useranswer` VALUES ('68', '9', '39', '8');
-INSERT INTO `t_useranswer` VALUES ('69', '10', '47', '8');
-INSERT INTO `t_useranswer` VALUES ('70', '11', '48', '8');
-INSERT INTO `t_useranswer` VALUES ('71', '12', '57', '8');
-INSERT INTO `t_useranswer` VALUES ('72', '13', '60', '8');
-INSERT INTO `t_useranswer` VALUES ('73', '14', '65', '8');
-INSERT INTO `t_useranswer` VALUES ('74', '15', '72', '8');
-INSERT INTO `t_useranswer` VALUES ('75', '16', '78', '8');
-INSERT INTO `t_useranswer` VALUES ('76', '17', '84', '8');
-INSERT INTO `t_useranswer` VALUES ('77', '18', '85', '8');
-INSERT INTO `t_useranswer` VALUES ('78', '4', '14', '9');
-INSERT INTO `t_useranswer` VALUES ('79', '5', '17', '9');
-INSERT INTO `t_useranswer` VALUES ('80', '6', '23', '9');
-INSERT INTO `t_useranswer` VALUES ('81', '7', '31', '9');
-INSERT INTO `t_useranswer` VALUES ('82', '8', '34', '9');
-INSERT INTO `t_useranswer` VALUES ('83', '9', '39', '9');
-INSERT INTO `t_useranswer` VALUES ('84', '10', '47', '9');
-INSERT INTO `t_useranswer` VALUES ('85', '11', '48', '9');
-INSERT INTO `t_useranswer` VALUES ('86', '12', '57', '9');
-INSERT INTO `t_useranswer` VALUES ('87', '13', '60', '9');
-INSERT INTO `t_useranswer` VALUES ('88', '14', '65', '9');
-INSERT INTO `t_useranswer` VALUES ('89', '15', '72', '9');
-INSERT INTO `t_useranswer` VALUES ('90', '16', '78', '9');
-INSERT INTO `t_useranswer` VALUES ('91', '17', '84', '9');
-INSERT INTO `t_useranswer` VALUES ('92', '18', '85', '9');
-INSERT INTO `t_useranswer` VALUES ('93', '4', '14', '10');
-INSERT INTO `t_useranswer` VALUES ('94', '5', '17', '10');
-INSERT INTO `t_useranswer` VALUES ('95', '6', '23', '10');
-INSERT INTO `t_useranswer` VALUES ('96', '7', '31', '10');
-INSERT INTO `t_useranswer` VALUES ('97', '8', '34', '10');
-INSERT INTO `t_useranswer` VALUES ('98', '9', '39', '10');
-INSERT INTO `t_useranswer` VALUES ('99', '10', '47', '10');
-INSERT INTO `t_useranswer` VALUES ('100', '11', '48', '10');
-INSERT INTO `t_useranswer` VALUES ('101', '12', '57', '10');
-INSERT INTO `t_useranswer` VALUES ('102', '13', '60', '10');
-INSERT INTO `t_useranswer` VALUES ('103', '14', '65', '10');
-INSERT INTO `t_useranswer` VALUES ('104', '15', '72', '10');
-INSERT INTO `t_useranswer` VALUES ('105', '16', '78', '10');
-INSERT INTO `t_useranswer` VALUES ('106', '17', '84', '10');
-INSERT INTO `t_useranswer` VALUES ('107', '18', '85', '10');
-INSERT INTO `t_useranswer` VALUES ('108', '1', '3', '11');
-INSERT INTO `t_useranswer` VALUES ('109', '2', '6', '11');
-INSERT INTO `t_useranswer` VALUES ('110', '3', '8', '11');
-INSERT INTO `t_useranswer` VALUES ('111', '19', '91', '11');
-INSERT INTO `t_useranswer` VALUES ('112', '20', '95', '11');
-INSERT INTO `t_useranswer` VALUES ('113', '21', '99', '11');
-INSERT INTO `t_useranswer` VALUES ('114', '22', '100', '11');
-INSERT INTO `t_useranswer` VALUES ('115', '23', '105', '11');
-INSERT INTO `t_useranswer` VALUES ('116', '24', '107', '11');
-INSERT INTO `t_useranswer` VALUES ('117', '25', '110', '11');
-INSERT INTO `t_useranswer` VALUES ('118', '1', '1', '12');
-INSERT INTO `t_useranswer` VALUES ('119', '2', '1', '12');
-INSERT INTO `t_useranswer` VALUES ('120', '3', '1', '12');
-INSERT INTO `t_useranswer` VALUES ('121', '19', '1', '12');
-INSERT INTO `t_useranswer` VALUES ('122', '20', '1', '12');
-INSERT INTO `t_useranswer` VALUES ('123', '21', '1', '12');
-INSERT INTO `t_useranswer` VALUES ('124', '22', '1', '12');
-INSERT INTO `t_useranswer` VALUES ('125', '23', '1', '12');
-INSERT INTO `t_useranswer` VALUES ('126', '24', '1', '12');
-INSERT INTO `t_useranswer` VALUES ('127', '25', '1', '12');
-INSERT INTO `t_useranswer` VALUES ('128', '1', '1', '13');
-INSERT INTO `t_useranswer` VALUES ('129', '2', '1', '13');
-INSERT INTO `t_useranswer` VALUES ('130', '3', '1', '13');
-INSERT INTO `t_useranswer` VALUES ('131', '19', '1', '13');
-INSERT INTO `t_useranswer` VALUES ('132', '20', '1', '13');
-INSERT INTO `t_useranswer` VALUES ('133', '21', '1', '13');
-INSERT INTO `t_useranswer` VALUES ('134', '22', '1', '13');
-INSERT INTO `t_useranswer` VALUES ('135', '23', '1', '13');
-INSERT INTO `t_useranswer` VALUES ('136', '24', '1', '13');
-INSERT INTO `t_useranswer` VALUES ('137', '25', '1', '13');
-INSERT INTO `t_useranswer` VALUES ('138', '4', '13', '14');
-INSERT INTO `t_useranswer` VALUES ('139', '5', '18', '14');
-INSERT INTO `t_useranswer` VALUES ('140', '6', '22', '14');
-INSERT INTO `t_useranswer` VALUES ('141', '7', '29', '14');
-INSERT INTO `t_useranswer` VALUES ('142', '8', '33', '14');
-INSERT INTO `t_useranswer` VALUES ('143', '9', '39', '14');
-INSERT INTO `t_useranswer` VALUES ('144', '10', '44', '14');
-INSERT INTO `t_useranswer` VALUES ('145', '11', '49', '14');
-INSERT INTO `t_useranswer` VALUES ('146', '12', '56', '14');
-INSERT INTO `t_useranswer` VALUES ('147', '13', '61', '14');
-INSERT INTO `t_useranswer` VALUES ('148', '14', '66', '14');
-INSERT INTO `t_useranswer` VALUES ('149', '15', '73', '14');
-INSERT INTO `t_useranswer` VALUES ('150', '16', '75', '14');
-INSERT INTO `t_useranswer` VALUES ('151', '17', '83', '14');
-INSERT INTO `t_useranswer` VALUES ('152', '18', '87', '14');
+INSERT INTO `t_useranswer` VALUES ('1', '4', '14', '1');
+INSERT INTO `t_useranswer` VALUES ('2', '5', '18', '1');
+INSERT INTO `t_useranswer` VALUES ('3', '6', '21', '1');
+INSERT INTO `t_useranswer` VALUES ('4', '7', '28', '1');
+INSERT INTO `t_useranswer` VALUES ('5', '8', '34', '1');
+INSERT INTO `t_useranswer` VALUES ('6', '9', '42', '1');
+INSERT INTO `t_useranswer` VALUES ('7', '10', '47', '1');
+INSERT INTO `t_useranswer` VALUES ('8', '11', '48', '1');
+INSERT INTO `t_useranswer` VALUES ('9', '12', '55', '1');
+INSERT INTO `t_useranswer` VALUES ('10', '13', '60', '1');
+INSERT INTO `t_useranswer` VALUES ('11', '14', '69', '1');
+INSERT INTO `t_useranswer` VALUES ('12', '15', '72', '1');
+INSERT INTO `t_useranswer` VALUES ('13', '16', '79', '1');
+INSERT INTO `t_useranswer` VALUES ('14', '17', '82', '1');
+INSERT INTO `t_useranswer` VALUES ('15', '18', '86', '1');
 
 -- ----------------------------
 -- Table structure for `t_usertest`
@@ -549,20 +503,13 @@ CREATE TABLE `t_usertest` (
 -- ----------------------------
 -- Records of t_usertest
 -- ----------------------------
-INSERT INTO `t_usertest` VALUES ('1', '2', '1', '2012-12-10');
-INSERT INTO `t_usertest` VALUES ('2', '2', '2', '2012-12-10');
-INSERT INTO `t_usertest` VALUES ('3', '2', '1', '2012-12-11');
-INSERT INTO `t_usertest` VALUES ('4', '3', '1', '2012-12-11');
-INSERT INTO `t_usertest` VALUES ('5', '3', '2', '2012-12-11');
-INSERT INTO `t_usertest` VALUES ('6', '3', '2', '2012-12-11');
-INSERT INTO `t_usertest` VALUES ('7', '3', '2', '2012-12-11');
-INSERT INTO `t_usertest` VALUES ('8', '3', '2', '2012-12-11');
-INSERT INTO `t_usertest` VALUES ('9', '3', '2', '2012-12-11');
-INSERT INTO `t_usertest` VALUES ('10', '3', '2', '2012-12-11');
-INSERT INTO `t_usertest` VALUES ('11', '3', '1', '2012-12-11');
-INSERT INTO `t_usertest` VALUES ('12', '3', '1', '2012-12-12');
-INSERT INTO `t_usertest` VALUES ('13', '3', '1', '2012-12-12');
-INSERT INTO `t_usertest` VALUES ('14', '3', '2', '2012-12-12');
+INSERT INTO `t_usertest` VALUES ('1', '4', '2', '2012-12-13');
+
+-- ----------------------------
+-- View structure for `v_user`
+-- ----------------------------
+DROP VIEW IF EXISTS `v_user`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_user` AS select `a`.`userid` AS `userid`,`a`.`username` AS `username`,`a`.`pwd` AS `pwd`,`a`.`roleid` AS `roleid`,`a`.`realname` AS `realname`,`a`.`tel` AS `tel`,`a`.`qq` AS `qq`,`a`.`email` AS `email`,`a`.`memo` AS `memo`,`b`.`rolename` AS `rolename` from (`t_user` `a` left join `t_role` `b` on((`a`.`roleid` = `b`.`roleid`))) ;
 
 -- ----------------------------
 -- View structure for `v_useranswer`
@@ -574,7 +521,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- View structure for `v_usertest`
 -- ----------------------------
 DROP VIEW IF EXISTS `v_usertest`;
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_usertest` AS select `a`.`utestid` AS `utestid`,`a`.`userid` AS `userid`,`a`.`testid` AS `testid`,`a`.`creattime` AS `creattime`,`b`.`username` AS `username`,`c`.`score` AS `score`,`d`.`title` AS `title` from (((`t_usertest` `a` left join `t_user` `b` on((`a`.`userid` = `b`.`userid`))) left join `v_useranswer` `c` on((`c`.`utestid` = `a`.`utestid`))) left join `t_test` `d` on((`a`.`testid` = `d`.`testid`))) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_usertest` AS select `a`.`utestid` AS `utestid`,`a`.`userid` AS `userid`,`a`.`testid` AS `testid`,`a`.`creattime` AS `creattime`,`b`.`username` AS `username`,`b`.`realname` AS `realname`,`c`.`score` AS `score`,`d`.`title` AS `title` from (((`t_usertest` `a` left join `t_user` `b` on((`a`.`userid` = `b`.`userid`))) left join `v_useranswer` `c` on((`c`.`utestid` = `a`.`utestid`))) left join `t_test` `d` on((`a`.`testid` = `d`.`testid`))) ;
 
 -- ----------------------------
 -- View structure for `v_usertestdetail`

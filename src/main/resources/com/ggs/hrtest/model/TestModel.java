@@ -15,6 +15,15 @@ public class TestModel extends BaseModel {
     private Integer topicid;
     private Integer utestid;
     private Integer score;
+    private Integer minutes;
+
+    public Integer getMinutes() {
+        return minutes;
+    }
+
+    public void setMinutes(Integer minutes) {
+        this.minutes = minutes;
+    }
 
     public Integer getScore() {
         return score;
