@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 60005
 File Encoding         : 65001
 
-Date: 2012-12-14 17:09:59
+Date: 2012-12-17 11:25:17
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -310,25 +310,26 @@ CREATE TABLE `t_test` (
   `title` varchar(50) DEFAULT NULL,
   `memo` varchar(1000) DEFAULT NULL,
   `ordernum` int(11) DEFAULT NULL,
+  `minutes` int(11) DEFAULT NULL,
   PRIMARY KEY (`testid`)
 ) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_test
 -- ----------------------------
-INSERT INTO `t_test` VALUES ('1', '职业经理人压力应变能力测评', '测试目标：    1，了解你的压力承受能力；    2，了解对压力的应变能力；    3，给你面对外来压力时的应对方法：     4，如何建立你作为一个职业经理人和生活成功人士所需要的压力应对能力。 ', '1');
-INSERT INTO `t_test` VALUES ('2', '心理测试', '本心理测试是由中国现代心理研究所以著名的美国兰德公司（战略研究所）拟制的一套经典心理测试题为蓝本，根据中国人心理特点加以适当改造后形成的心理测试题，目前已被一些著名大公司，如联想、长虹、海尔等公司作为对员工心理测试的重要辅助试卷。 注意：每题只能选择一个答案，应为你第一印象的答案，把相应答案的分值加在一起即为你的得分。 ', '2');
-INSERT INTO `t_test` VALUES ('3', '素质测试', '在公司里，不同岗位的人，需要不同性格的人，比如，营销、公关岗位的人，应该选择外向型人才，而科研开发则应该选择偏内向型的人才。 本测试正是为这种人才选择提供依据的。 ', '3');
-INSERT INTO `t_test` VALUES ('4', '判断能力测试题', null, '4');
-INSERT INTO `t_test` VALUES ('5', '*霍兰德职业倾向测验量表', null, '5');
-INSERT INTO `t_test` VALUES ('6', '*艾森克情绪稳定性测验', null, '6');
-INSERT INTO `t_test` VALUES ('7', '*FPA性格色彩测试题及结果分析', null, '7');
-INSERT INTO `t_test` VALUES ('8', '*DISC职业性格测评', null, '8');
-INSERT INTO `t_test` VALUES ('9', '*MBTI职业性格测试题', null, '9');
-INSERT INTO `t_test` VALUES ('10', '管理能力的测评', null, '10');
-INSERT INTO `t_test` VALUES ('11', '基层岗位招聘笔试题', null, '11');
-INSERT INTO `t_test` VALUES ('12', '应届生一般能力测验', null, '12');
-INSERT INTO `t_test` VALUES ('13', '招聘笔试之综合能力测试题', null, '13');
+INSERT INTO `t_test` VALUES ('1', '职业经理人压力应变能力测评', '测试目标：    1，了解你的压力承受能力；    2，了解对压力的应变能力；    3，给你面对外来压力时的应对方法：     4，如何建立你作为一个职业经理人和生活成功人士所需要的压力应对能力。 ', '1', '40');
+INSERT INTO `t_test` VALUES ('2', '心理测试', '本心理测试是由中国现代心理研究所以著名的美国兰德公司（战略研究所）拟制的一套经典心理测试题为蓝本，根据中国人心理特点加以适当改造后形成的心理测试题，目前已被一些著名大公司，如联想、长虹、海尔等公司作为对员工心理测试的重要辅助试卷。 注意：每题只能选择一个答案，应为你第一印象的答案，把相应答案的分值加在一起即为你的得分。 ', '2', '35');
+INSERT INTO `t_test` VALUES ('3', '素质测试', '在公司里，不同岗位的人，需要不同性格的人，比如，营销、公关岗位的人，应该选择外向型人才，而科研开发则应该选择偏内向型的人才。 本测试正是为这种人才选择提供依据的。 ', '3', '30');
+INSERT INTO `t_test` VALUES ('4', '判断能力测试题', null, '4', '30');
+INSERT INTO `t_test` VALUES ('5', '*霍兰德职业倾向测验量表', null, '5', '30');
+INSERT INTO `t_test` VALUES ('6', '*艾森克情绪稳定性测验', null, '6', '30');
+INSERT INTO `t_test` VALUES ('7', '*FPA性格色彩测试题及结果分析', null, '7', '30');
+INSERT INTO `t_test` VALUES ('8', '*DISC职业性格测评', null, '8', '30');
+INSERT INTO `t_test` VALUES ('9', '*MBTI职业性格测试题', null, '9', '30');
+INSERT INTO `t_test` VALUES ('10', '管理能力的测评', null, '10', '30');
+INSERT INTO `t_test` VALUES ('11', '基层岗位招聘笔试题', null, '11', '30');
+INSERT INTO `t_test` VALUES ('12', '应届生一般能力测验', null, '12', '30');
+INSERT INTO `t_test` VALUES ('13', '招聘笔试之综合能力测试题', null, '13', '30');
 
 -- ----------------------------
 -- Table structure for `t_testresult`
