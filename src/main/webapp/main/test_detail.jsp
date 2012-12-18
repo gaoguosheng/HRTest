@@ -7,55 +7,48 @@
 --%>
 <%@ page language="java" pageEncoding="UTF-8" %>
 <%@include file="../inc/top.jsp"%>
-<%@taglib prefix="s" uri="/struts-tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <body>
 <script type="text/javascript">
     $(function(){
         ggs.parse();
-
     }) ;
-
 
     function submitForm(){
         var answers = new Array();
-        <s:iterator id="topic" value="#request.topicList" status="i">
-        var rbl = ggs.get("answer_${topic.topicid}");
-        var optansid =rbl.getValue();
-        if( optansid && optansid!=""){
-            answers[${i.index}]={topicid:${topic.topicid},optansid:optansid};
-        }
-        </s:iterator>
-        /*
-        for(var i=0;i<answers.length;i++){
-            if(!answers[i].optansid || answers[i].optansid==""){
-                ggs.alert("您还未填写的第"+(i+1)+"题！");
-                return false;
+        $("input").each(function(i){
+            if(this.checked){
+                answers[i]={topicid:$(this).attr("topicid"),optansid:this.value};
             }
-        }
-        */
+        });
         var json =  ggs.encode(answers);
-        $GGS.ajax("test!saveAnswers.action",{data:json,testid:${param.testid},userid:${sessionScope.admin.userid}});
+        $GGS.ajax("test!saveAnswers.action",{data:json,testid:${param.testid}});
         ggs.alert("提交成功！");
         $("#submitBtn").css("display","none");
         $("#resetBtn").css("display","none");
     }
     function resetForm(){
-        var form = new ggs.Form("#form1");
-        form.reset();
+        document.all.form1.reset();
     }
 </script>
 <div id="layout1" class="ggs-layout" style="width:100%;height:100%;"  borderStyle="border:solid 1px #aaa;">
     <div title="center" region="center"  >
-        <div id="form1" style="padding: 5px;">
-            <input name="testid" class="ggs-hidden" value="${param.testid}"/>
-            <s:iterator id="topic" value="#request.topicList">
+        <form id="form1" style="padding: 5px;">
+            <c:forEach var="topic" items="${requestScope.topicList}">
                 <div><strong>${topic.ordernum}：${topic.content}</strong></div>
-                <div id="answer_${topic.topicid}" class="ggs-radiobuttonlist" repeatItems="2" repeatLayout="table" repeatDirection="vertical"
-                     textField="content" valueField="optansid"  url="test!getOptionAnswersByTopic.action?topicid=${topic.topicid}">
-                </div>
+             <c:set var="i" value="1"></c:set>
+            <c:forEach var="ans" items="${requestScope.answerList}">
+                    <c:if test="${topic.topicid==ans.topicid}">
+                        <span style="margin-left: 10px;">
+                            <input type="radio" name="answer_${topic.topicid}" value="${ans.optansid}" topicid="${ans.topicid}">${ans.content}
+                        </span>
+                        <c:if test="${i % 2==0}"><br/></c:if>
+                        <c:set var="i" value="${i+1}"></c:set>
+                    </c:if>
+            </c:forEach>
                 <br/>
-            </s:iterator>
-        </div>
+            </c:forEach>
+        </form>
     </div>
     <div region="south" showSplit="false" showHeader="false" height="80"  >
         <div style="padding: 5px;color: red;">剩余时间：<script type="text/javascript">$GGS.downCount(${param.minutes},submitForm);</script></div>
@@ -65,8 +58,4 @@
         </div>
     </div>
 </div>
-
-
-
-
 </body>

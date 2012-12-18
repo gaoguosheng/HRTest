@@ -30,7 +30,9 @@ public class TestAction extends BaseAction{
      * */
     public void test(){
         List topicList = testDao.getTopics(this.getModel().getTestid());
+        List answerList = testDao.getOptionAnswers(this.getModel().getTestid());
         request.setAttribute("topicList",topicList);
+        request.setAttribute("answerList",answerList);
         this.forward("/main/test_detail.jsp");
     }
 
@@ -50,7 +52,7 @@ public class TestAction extends BaseAction{
         UserAnswer[]answers = (UserAnswer[]) this.getJsonObject(UserAnswer[].class);
         UserTest userTest = new UserTest();
         userTest.setTestid(this.getIntParam("testid"));
-        userTest.setUserid(this.getIntParam("userid"));
+        userTest.setUserid(this.getModel().getAdmin().getUserid());
         userTest.setCreattime(DateUtil.getDate());
         testDao.saveAnswers(userTest,answers);
     }
