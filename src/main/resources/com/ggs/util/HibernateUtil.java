@@ -178,7 +178,7 @@ public class HibernateUtil {
         Session session = getSession();
         SQLQuery query = session.createSQLQuery(sql);
         query.setResultTransformer(Transformers.ALIAS_TO_ENTITY_MAP);
-        query.setFirstResult(firstFesult);
+        query.setFirstResult(firstFesult*maxResults);
         query.setMaxResults(maxResults);
         List list = query.list();
         session.close();
