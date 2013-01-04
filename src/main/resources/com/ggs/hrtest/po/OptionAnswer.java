@@ -23,7 +23,7 @@ public class OptionAnswer {
     private Integer optansid;
     private Integer ordernum;
     private String content;
-    private Integer score;
+    private Double score;
     private Integer topicid;
 
     public Integer getOptansid() {
@@ -50,11 +50,11 @@ public class OptionAnswer {
         this.content = content;
     }
 
-    public Integer getScore() {
+    public Double getScore() {
         return score;
     }
 
-    public void setScore(Integer score) {
+    public void setScore(Double score) {
         this.score = score;
     }
 

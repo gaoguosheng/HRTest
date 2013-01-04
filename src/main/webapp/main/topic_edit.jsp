@@ -53,7 +53,7 @@
                             <input property="editor" class="ggs-textbox" style="width:100%;" vtype="required"/>
                         </div>
                         <div field="score" width="20" align="center" headerAlign="center" >分值
-                            <input property="editor" class="ggs-spinner"  minValue="0" maxValue="100" style="width: 100%;"/>
+                            <input property="editor" class="ggs-spinner"  minValue="0" maxValue="100" decimalPlaces="2" style="width: 100%;"/>
                         </div>
                     </div>
                     </div>
